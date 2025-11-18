@@ -1,0 +1,264 @@
+@font-face {
+	font-family: "NewCicle Gordita";
+	src: url("../fonts/New Cicle Gordita.ttf");
+}
+html,
+body {
+	width: 1400px;
+	margin: 0 auto;
+	padding: 0;
+	
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+/*------------------------------
+Стили для Headera
+-------------------------------*/
+.headerMenu {
+	width: 100%;
+	height: 50px;
+	background-color: #184e84;
+	border-bottom: 1px solid #002c5f;
+}
+.headerMenu .logo {
+	font-family: "NewCicle Gordita";
+	font-size: 1.875em;
+	margin-left: 240px; 
+	line-height: 50px;
+	float: left;
+	text-shadow: 1px 2px 2px #0f3052;
+}
+.headerMenu ul {
+	float: right;
+	margin-right: 240px;
+}
+.headerMenu li {
+	display: inline-block;
+	list-style: none;
+	font-size: 0.875em;
+	font-family: "Arial";
+	padding: 0 14px;
+	text-transform: capitalize;
+}
+.headerMenu a {
+	text-decoration: none;
+	color: #efefef;
+}
+
+/*--------------------------------------
+Стили для кнопок слайдера
+---------------------------------------*/
+#slider {
+	width: 100%;
+	display: table;
+	background: #d1e6f9;
+	padding-top: 23px;
+	border-bottom: 2px solid #bfd5e9;
+}
+.sliderMenu {
+	float: left;
+	height: 345px;
+	
+}
+.sliderMenu div {
+	width: 248px;
+	height: 75px;
+	background-color: #e0e0e0;
+	margin-left: 208px;
+	line-height: 75px;
+	border: 2px solid #dbdbdb;
+	padding-left: 20px;
+	font-family: Arial;
+	font-size: 0.875em;
+}
+.sliderMenu div:nth-child(1),
+.sliderMenu div:nth-child(2),
+.sliderMenu div:nth-child(3) {
+	margin-bottom: -2px;
+}
+.sliderMenu a {
+	text-decoration: none;
+	color: #191919;
+}
+.sliderMenu .active {
+	background: #d6d6d4;
+}
+.sliderMenu .active a {
+	color: #184e84;
+}
+/*---------------------------
+Стили для окна слайдера 
+---------------------------*/
+.windowSlider {
+	position: relative;
+	right: 1px;
+	float: right;
+	height: 306px;
+	background: linear-gradient(to right, 
+		rgba(123,181,235,1) 0%, rgba(123,181,235,1) 7%, 
+		rgba(73,155,234,1) 45%, rgba(37,103,168,1) 1400px);
+	border-bottom: 2px solid #2a6ebb;
+	border-top: 2px solid #68ace5;
+	border-left: 2px solid #68ace5;
+	margin-right: 210px;
+}
+.windowSlider a {
+	color: #efefef;
+	text-shadow: 1px 1px 2px #4d6a89;
+	text-decoration: none;
+}
+.windowSlider .postSlider {
+	width: 708px;	
+}
+h2,
+h3 {
+	font-family: Georgia;	
+	font-weight: normal;
+	text-align: center;
+}
+h2 {
+	font-size: 1.5em;
+	font-style: italic;
+}
+h3 {
+	font-size: 1.124em;
+}
+.postSlider img {
+	position: relative;
+	top: 9px;
+	right: 10px;
+}
+.postSlider p {
+	font-size: 0.875em;
+	font-family: Arial;
+	color: #052648;
+	padding: 0px;
+	text-align: center;
+	line-height: 20px;
+}
+.leftWindowSlider p,
+.centerWindowSlider p,
+.rightWindowSlider p {
+ 	text-align: left;
+}
+
+.leftWindowSlider,
+.centerWindowSlider,
+.rightWindowSlider {
+	position: absolute;
+	margin-left: 20px;
+
+}
+.leftWindowSlider {
+	width: 195px;
+}
+.centerWindowSlider {
+	width: 200px;
+	left: 230px;
+}
+.rightWindowSlider {
+	width: 205px;
+	left: 460px;
+}
+/*-------------------------
+Стили для контента
+----------------------------*/
+main {
+	width: 100%;
+	color: #191919;
+	
+}
+main h2 a,
+main a {
+	color: #345d8d;
+}
+main h2 a {
+	text-decoration: none;
+}
+main h2 {
+	font-size: 1.125em;
+	text-align: left;
+	padding-left: 10px;
+}
+main p {
+	font-family: Arial;
+	font-size: 0.875em;
+	line-height: 20px;
+}
+main h4 {
+	font-size: 0.875em;
+	font-weight: bold;
+}
+main img {
+	position: relative;
+	top: 7px;
+	right: 10px;
+}
+.columnLeft,
+.columnCenter,
+.columnRight {
+	display: inline-block;
+	vertical-align: top;
+	height: 440px;
+	padding: 30px 0 37px 0;
+}
+.columnLeft {
+	margin: 0 18px 0 208px;
+	width: 310px;
+}
+.columnCenter {
+	width: 296px;
+	margin: 0 18px;
+}
+.columnRight {
+	margin-left: 18px;
+	width: 292px;
+}
+form {
+	position: relative;
+	top: 10px;
+	left: 210px;
+}
+.btnFollow {
+	font-size: 0.875em;
+	padding: 9px 12px;
+	background: #184e84;
+	color: #efefef;
+	border: 1px solid #5c93c9;
+}
+/*------------------------------
+Стили для футера
+--------------------------------*/
+footer {
+	width: 100%;
+	height: 60px;
+	font-size: 0.875em;
+	background: #184e84;
+	border-top: 1px solid #002c5f;
+	color: #efefef;
+	text-transform: capitalize;
+}
+footer span {
+	margin-left: 208px;
+	margin-right: 40px;
+	line-height: 60px;
+	float: left;
+}
+footer a {
+	color: #efefef;
+	parring: 5px;
+	text-decoration: none;
+
+}
+footer li {
+	padding: 5px;
+	list-style: none;
+	display: inline-block;
+	line-height: 22px;
+	border-left: 1px solid #efefef;
+
+}

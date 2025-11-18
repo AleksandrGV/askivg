@@ -1,0 +1,152 @@
+#wrapper {
+	padding-top: 20px;
+}
+.logo_cap {
+	width: 340px;
+	height: 67px;
+	background: url("../img/graduation_cap.png") no-repeat;
+	background-position: 10px 15px;
+}
+.user_menu {
+	float: right;
+	margin: 0 10px 10px 0;
+}
+.user_menu {
+	padding-bottom: 5px;
+}
+.user_menu_icon {
+	margin: 0;
+	padding: 0;
+}
+.user_menu_icon .i1.active {		
+	background: url("../img/user3_icon_03.png") no-repeat 0px 0;
+	top: 0px;
+	right: 15px;
+	padding-left: 15px;
+	
+}
+.user_menu_icon .i2 {
+	background: url("../img/shape9_copy2_03.png") no-repeat;
+	top: 1px;
+	right: 10px;
+}
+.user_menu_icon .i3 {
+	background: url("../img/kalendar_copy2_03.png") no-repeat;
+	top: 1px;
+	right: 5px;
+}
+#content_wrap {
+	float: left;
+}
+#content {
+	position: relative;
+	margin-right: 28px;
+}
+#content .tabs_caption li {
+	border-right: 1px solid #cccccc;
+	margin: 0 -1px 0 0;
+}
+.tabs_caption .active {
+	border-right: 1px solid #cccccc;
+	border-bottom: none;
+}
+.caption_table .cell1 {
+	clear: left;
+}
+.line_ie {
+	display: block;
+	width: 128px;
+	height: 1px;
+	position: absolute;
+	top: 283px;
+	right: 5px;
+	background: #cccccc;
+}
+.table .cell {
+	float: left;
+}
+.my_courses {
+	background: url("../img/user3_icon_03.png") no-repeat;
+	left: 10px;
+	padding-left: 18px;
+}
+.my_tests {
+	background: url("../img/shape9_copy3_03.png") no-repeat;
+	left: 10px;
+	padding-left: 18px;
+}
+.my_events {
+	background: url("../img/calendar_copy_03.png") no-repeat;
+	left: 10px;
+	padding-left: 18px;
+}
+.my_icon .line_ie {
+	width: 865px;
+	height: 1px;
+	background: #cccccc;
+	position: absolute;
+	top: 600px;
+	left: 0;
+}
+.banner_left,
+.banner_center,
+.banner_right {
+	background: #9ad7ed;
+	top: 25px;
+}
+.sidebar_right {
+	float: right;
+
+}
+form {
+	margin-top: 10px;
+}
+input {
+	border: 5px solid #3f77b2;
+	border-right: 32px solid #3f77b2;
+	padding: 0 5px;
+}
+.button_search {
+	top: 20px;
+	right: 20px;
+}
+.news {
+	margin: 38px 1px;
+}
+.video_slider {
+	position: absolute;
+	top: 750px;
+	right: 8px;
+}
+.foto_slider {
+	float: right;
+	margin-right: 8px;
+}
+.block_news_bank li {
+	margin: 0 -2px -1px 1px;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+.block_news_bank .line_ie {
+	width: 23px;
+	top: 94px;
+	right: 10px;
+}
+.footer {
+	display: block;
+	position: relative;
+}
+.logo_footer {
+	background: url("../img/logo.png") no-repeat 1px 10px;
+	padding-left: 8px;
+	margin-top: 20px;
+}
+.footer .line_ie {
+	width: 100%;
+	height: 1px;
+	background: #cccccc;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}

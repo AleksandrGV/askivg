@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.S.K.I.V.G. | Архитекторы Цифрового Пространства</title>
+    <meta name="description" content="Создаем современные, быстрые и удобные сайты на HTML, CSS, JS, а также на WordPress, которые становятся фундаментом вашего бизнеса.">
+    
+    <!-- Подключение шрифтов Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключение библиотек -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ========== PRELOADER (Загрузочный экран) ========== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader__content">
+            <!-- Логотип с анимацией -->
+            <div class="preloader__logo">
+                <span class="preloader__letter" style="--delay: 0s">A</span>
+                <span class="preloader__letter" style="--delay: 0.1s">.</span>
+                <span class="preloader__letter" style="--delay: 0.2s">S</span>
+                <span class="preloader__letter" style="--delay: 0.3s">.</span>
+                <span class="preloader__letter" style="--delay: 0.4s">K</span>
+                <span class="preloader__letter" style="--delay: 0.5s">.</span>
+                <span class="preloader__letter" style="--delay: 0.6s">I</span>
+                <span class="preloader__letter" style="--delay: 0.7s">.</span>
+                <span class="preloader__letter" style="--delay: 0.8s">V</span>
+                <span class="preloader__letter" style="--delay: 0.9s">.</span>
+                <span class="preloader__letter" style="--delay: 1.0s">G</span>
+                <span class="preloader__letter" style="--delay: 1.1s">.</span>
+            </div>
+            <!-- Прогресс-бар загрузки -->
+            <div class="preloader__progress">
+                <div class="preloader__progress-line" id="progressLine"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== NAVIGATION (Навигация) ========== -->
+    <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__logo">
+                <a href="#hero" class="nav__logo-link">A.S.K.I.V.G.</a>
+            </div>
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#principles" class="nav__link">Принципы</a></li>
+                <li class="nav__item"><a href="#technologies" class="nav__link">Технологии</a></li>
+                <li class="nav__item"><a href="#portfolio" class="nav__link">Портфолио</a></li>
+                <li class="nav__item"><a href="#process" class="nav__link">Процесс</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Контакты</a></li>
+            </ul>
+            <!-- Кнопка мобильного меню -->
+            <button class="nav__toggle" id="navToggle">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION (Главный экран) ========== -->
+    <section class="hero" id="hero">
+        <div class="hero__background"></div>
+        <div class="hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">A.S.K.I.V.G.<br><span class="hero__subtitle">Архитекторы Цифрового Пространства</span></h1>
+                <p class="hero__description">Разрабатываем современные, быстрые и удобные сайты на HTML, CSS, JS, а также на WordPress, которые становятся фундаментом вашего бизнеса.</p>
+                <a href="#contact" class="hero__cta btn btn--primary">Обсудить проект</a>
+            </div>
+        </div>
+        <!-- Декоративные элементы -->
+        <div class="hero__decoration hero__decoration--1"></div>
+        <div class="hero__decoration hero__decoration--2"></div>
+        <div class="hero__decoration hero__decoration--3"></div>
+    </section>
+
+    <!-- ========== PRINCIPLES SECTION (Наши принципы) ========== -->
+    <section class="principles" id="principles">
+        <div class="principles__container">
+            <div class="principles__header" data-aos="fade-up">
+                <h2 class="principles__title">Наши принципы</h2>
+                <p class="principles__subtitle">Философия, которая лежит в основе каждого проекта</p>
+            </div>
+            
+            <div class="principles__grid">
+                <!-- Принцип 1: Проектирование -->
+                <div class="principles__card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="principles__card-icon">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="principles__card-title">Проектирование</h3>
+                    <p class="principles__card-text">Начинаем с глубокого анализа ваших целей и аудитории. Создаем прототипы и продумываем логику.</p>
+                </div>
+
+                <!-- Принцип 2: Дизайн -->
+                <div class="principles__card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="principles__card-icon">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="principles__card-title">Дизайн</h3>
+                    <p class="principles__card-text">Разрабатываем интерфейсы, которые цепляют и решают задачи пользователя. Современный и лаконичный UI/UX.</p>
+                </div>
+
+                <!-- Принцип 3: Разработка -->
+                <div class="principles__card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="principles__card-icon">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="principles__card-title">Разработка</h3>
+                    <p class="principles__card-text">Чистый, структурированный код на HTML, CSS, JS. Оптимизация скорости и кроссбраузерность.</p>
+                </div>
+
+                <!-- Принцип 4: Надежность -->
+                <div class="principles__card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="principles__card-icon">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="principles__card-title">Надежность</h3>
+                    <p class="principles__card-text">Создаем стабильные и безопасные решения на WordPress. Обеспечиваем поддержку.</p>
+                </div>
+
+                <!-- Принцип 5: Гибкость решений -->
+                <div class="principles__card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="principles__card-icon">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="principles__card-title">Гибкость решений</h3>
+                    <p class="principles__card-text">Создаем проекты любой сложности — от лаконичных лендингов на Tilda до сложных кастомизированных решений на WordPress и чистом коде.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TECHNOLOGIES SECTION (Технологии) ========== -->
+    <section class="technologies" id="technologies">
+        <div class="technologies__container">
+            <div class="technologies__header" data-aos="fade-up">
+                <h2 class="technologies__title">Технологии, которые мы используем</h2>
+                <p class="technologies__subtitle">Современный стек для создания качественных решений</p>
+            </div>
+            
+            <div class="technologies__sphere-container" data-aos="zoom-in" data-aos-delay="200">
+                <div class="technologies__sphere-3d">
+                    <!-- Визуальная сфера -->
+                    <div class="technologies__sphere-surface"></div>
+                </div>
+                
+                <!-- Контейнер для технологий (отдельный от вращающейся сферы) -->
+                <div class="technologies__sphere-wrapper">
+                    <!-- Технологии -->
+                    <div class="technologies__sphere-point technologies__sphere-html" data-tech="html">HTML5</div>
+                    <div class="technologies__sphere-point technologies__sphere-css" data-tech="css">CSS3</div>
+                    <div class="technologies__sphere-point technologies__sphere-js" data-tech="js">JS</div>
+                    <div class="technologies__sphere-point technologies__sphere-wp" data-tech="wordpress">WP</div>
+                    <div class="technologies__sphere-point technologies__sphere-git" data-tech="git">Git</div>
+                    <div class="technologies__sphere-point technologies__sphere-webpack" data-tech="webpack">Webpack</div>
+                    <div class="technologies__sphere-point technologies__sphere-figma" data-tech="figma">Figma</div>
+                    <div class="technologies__sphere-point technologies__sphere-tilda" data-tech="tilda">Tilda</div>
+                    <div class="technologies__sphere-point technologies__sphere-bem" data-tech="bem">БЭМ</div>
+                    <div class="technologies__sphere-point technologies__sphere-sass" data-tech="sass">Sass</div>
+                </div>
+                
+                <!-- Информационное окно -->
+                <div class="technologies-info" id="technologiesInfo">
+                    <h3 class="technologies-info__title" id="technologiesInfoTitle">Выберите технологию</h3>
+                    <p class="technologies-info__text" id="technologiesInfoText">Наведите курсор на любой элемент сферы</p>
+                </div>
+            </div>
+        </div> 
+    </section>
+
+    <!-- ========== PORTFOLIO SECTION (Наши работы) ========== -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio__container">
+            <div class="portfolio__header" data-aos="fade-up">
+                <h2 class="portfolio__title">Наши работы</h2>
+                <p class="portfolio__subtitle">Проекты, которыми мы гордимся</p>
+            </div>
+
+            <!-- Фильтры портфолио -->
+            <div class="portfolio__filters" data-aos="fade-up" data-aos-delay="100">
+                <button class="portfolio__filter portfolio__filter--active" data-filter="*">Все</button>
+                <button class="portfolio__filter" data-filter=".wordpress">WordPress</button>
+                <button class="portfolio__filter" data-filter=".html-css-js">HTML/CSS/JS</button>
+                <button class="portfolio__filter" data-filter=".landing">Лендинги</button>
+                <button class="portfolio__filter" data-filter=".corporate">Корпоративные</button>
+                <button class="portfolio__filter" data-filter=".multi-page">Многостраничные</button>
+                <button class="portfolio__filter" data-filter=".tilda">Tilda</button>
+            </div>
+
+            <!-- Сетка проектов -->
+            <div class="portfolio__grid" id="portfolioGrid">
+                <!-- У проектов проверить классы -->
+                <!-- Проект 1 -->
+                <div class="portfolio__item wordpress corporate multi-page" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio__item-image">
+                        <img src="img/stage-studio.jpg" alt="Студия танцев и видеографов" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Студия танцев и видеографов "Stage Studio"</h3>
+                            <p class="portfolio__item-category">WordPress • Корпоративный сайт</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="https://stagestudio.ru/" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(1)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 2 -->
+                <div class="portfolio__item html-css-js landing" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="portfolio__item-image">
+                        <img src="img/keksobooking.jpg" alt="Keksobooking. Кексы по соседству" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Keksobooking. Кексы по соседству</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS • Сайт объявлений</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="https://aleksandrgv.github.io/356085-keksobooking-21/" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(2)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 3 -->
+                <div class="portfolio__item html-css-js multi-page" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="portfolio__item-image">
+                        <img src="img/pink.jpg" alt="Мобильное приложение, которое раскрасит ваши серые будни розовыми красками" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Приложение, которое раскрасит серые будни розовыми красками</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS • Мобильное приложение, "Pink" раскрасит ваши серые будни.</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="https://aleksandrgv.github.io/356085-pink-20/build/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(3)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 4 -->
+                <div class="portfolio__item tilda landing" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="portfolio__item-image">
+                        <img src="img/wedding-invitation-1.jpg" alt="Приглашение на свадьбу" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Стильное приглашение на свадьбу</h3>
+                            <p class="portfolio__item-category">Tilda • Пригласительное на свадьбу с таймером обратного отсчета и выбором напитков.</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="https://project7847501.tilda.ws/" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(4)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 5 -->
+                <div class="portfolio__item html-css-js multi-page" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="portfolio__item-image">
+                        <img src="img/technomart.jpg" alt="Магазин строительных материалов и инструментов" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Интернет-магазин строительных материалов и инструментов.</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS • Сайт строительных материалов и инструментов.</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="proekty/technomart/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(5)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 6 -->
+                <div class="portfolio__item multi-page" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="portfolio__item-image">
+                        <img src="img/device.jpg" alt="Интернет магазин электронных гаджетов и акссесуаров" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Интернет магазин электронных гаджетов и акссесуаров.</h3>
+                            <p class="portfolio__item-category">HTML/CSS • Магазин электронных гаджетов и акссесуаров .</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="https://aleksandrgv.github.io/356085-device-28/" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(6)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 7 -->
+                <div class="portfolio__item html-css-js corporate multi-page" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="portfolio__item-image">
+                        <img src="img/tractorbuilding1.jpg" alt="Грузоперевозки" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Услуги грузового транспорта</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS/Bootstrap/JQuery • Сайт по предоставлению услуг грузоперевозок, аренде грузвого транспорта</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="proekty/tractorbuilding/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(7)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 8 -->
+                <div class="portfolio__item html-css-js corporate multi-page" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="portfolio__item-image">
+                        <img src="img/sgk.jpg" alt="Союз гаражных кооперативов" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Союз гаражных кооперативов</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS/Bootstrap/JQuery • Многостраничный сайт Союз гаражных кооперативов</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="proekty/gsk/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(8)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 9 -->
+                <div class="portfolio__item html-css-js corporate" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="portfolio__item-image">
+                        <img src="img/My_Corporate_Website.jpg" alt="Корпоративный сай" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">My Corporate Website</h3>
+                            <p class="portfolio__item-category">HTML/CSS • Одностраничный корпоративный сайт</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="proekty/home/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(9)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 10 -->
+                <div class="portfolio__item html-css-js corporate multi-page" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="portfolio__item-image">
+                        <img src="img/thebikeshop.jpg" alt="Велосипеды ручной работы" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Велосипеды ручной работы</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS/Bootstrap/JQuery • Сайт по продаже кастомных велосипедов</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="proekty/bikeshop/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(10)">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Проект 11 -->
+                <div class="portfolio__item html-css-js corporate" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="portfolio__item-image">
+                        <img src="img/UniCreditBank.jpg" alt="Bikeshop" loading="lazy">
+                        <div class="portfolio__item-overlay">
+                            <h3 class="portfolio__item-title">Банк "ЮниКредитБанк"</h3>
+                            <p class="portfolio__item-category">HTML/CSS/JS • Корпоративный сайт</p>
+                            <div class="portfolio__item-buttons">
+                                <a href="proekty/ukb/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal()">Подробнее</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROCESS SECTION (Этапы работы) ========== -->
+    <section class="process" id="process">
+        <div class="process__container">
+            <div class="process__header" data-aos="fade-up">
+                <h2 class="process__title">Этапы работы</h2>
+                <p class="process__subtitle">Прозрачный процесс от идеи до результата</p>
+            </div>
+
+            <div class="process__timeline">
+                <!-- Этап 1 -->
+                <div class="process__step" data-aos="fade-right" data-aos-delay="100">
+                      <div class="process__step-number-border">
+                          <div class="process__step-number">01</div>
+                      </div>
+                    <div class="process__step-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Заявка и брифование</h3>
+                        <p class="process__step-description">Обсуждаем ваши задачи, цели и требования к проекту. Определяем техническое задание и бюджет.</p>
+                    </div>
+                </div>
+
+                <!-- Этап 2 -->
+                <div class="process__step" data-aos="fade-left" data-aos-delay="200">
+                      <div class="process__step-number-border">
+                          <div class="process__step-number">02</div>
+                      </div>
+                    <div class="process__step-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Аналитика и прототипирование</h3>
+                        <p class="process__step-description">Изучаем конкурентов, аудиторию и создаем wireframe. Продумываем пользовательские сценарии.</p>
+                    </div>
+                </div>
+
+                <!-- Этап 3 -->
+                <div class="process__step" data-aos="fade-right" data-aos-delay="300">
+                  <div class="process__step-number-border">
+                    <div class="process__step-number">03</div>
+                  </div>
+                    <div class="process__step-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
+                        </svg>
+                    </div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Дизайн-концепция</h3>
+                        <p class="process__step-description">Разрабатываем визуальную концепцию, создаем макеты всех страниц с учетом адаптивности.</p>
+                    </div>
+                </div>
+
+                <!-- Этап 4 -->
+                <div class="process__step" data-aos="fade-left" data-aos-delay="400">
+                  <div class="process__step-number-border">
+                    <div class="process__step-number">04</div>
+                  </div>
+                    <div class="process__step-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Верстка и программирование</h3>
+                        <p class="process__step-description">Создаем адаптивную верстку, добавляем интерактивность и анимации.</p>
+                    </div>
+                </div>
+
+                <!-- Этап 5 -->
+                <div class="process__step" data-aos="fade-right" data-aos-delay="500">
+                  <div class="process__step-number-border">
+                    <div class="process__step-number">05</div>
+                  </div>
+                    <div class="process__step-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Тестирование и запуск</h3>
+                        <p class="process__step-description">Тестируем сайт на всех устройствах, оптимизируем скорость загрузки и запускаем проект.</p>
+                    </div>
+                </div>
+
+                <!-- Этап 6 -->
+                <div class="process__step" data-aos="fade-left" data-aos-delay="600">
+                  <div class="process__step-number-border">
+                    <div class="process__step-number">06</div>
+                  </div>
+                    <div class="process__step-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div class="process__step-content">
+                        <h3 class="process__step-title">Поддержка</h3>
+                        <p class="process__step-description">Обеспечиваем техническую поддержку, обновления безопасности и консультации по развитию.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS SECTION (Отзывы клиентов) ========== -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials__container">
+            <div class="testimonials__header" data-aos="fade-up">
+                <h2 class="testimonials__title">Отзывы клиентов</h2>
+                <p class="testimonials__subtitle">Что говорят о нас наши клиенты</p>
+            </div>
+
+            <!-- Слайдер отзывов -->
+            <div class="testimonials__slider-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper testimonials__slider">
+                    <div class="swiper-wrapper">
+                        <!-- Отзыв 1 -->
+                        <div class="swiper-slide testimonials__slide">
+                            <div class="testimonials__card">
+                                <div class="testimonials__quote">
+                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
+                                        <path d="M10.6 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L21.2 4.8C13.5 9.9 9.5 16.1 9.5 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S18.3 42.9 12.4 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                        <path d="M37.1 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L47.7 4.8C40 9.9 36 16.1 36 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S44.8 42.9 38.9 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonials__text">Команда A.S.K.I.V.G. создала для нашей кофейни потрясающий сайт! Современный дизайн, быстрая загрузка и удобное администрирование. Количество онлайн-заказов выросло на 40%.</p>
+                                <div class="testimonials__author">
+                                    <img src="img/reviews-maria.jpg" alt="Мария Петрова" class="testimonials__avatar">
+                                    <div class="testimonials__info">
+                                        <div class="testimonials__name">Мария Петрова</div>
+                                        <div class="testimonials__position">Владелец кофейни "Aroma"</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Отзыв 2 -->
+                        <div class="swiper-slide testimonials__slide">
+                            <div class="testimonials__card">
+                                <div class="testimonials__quote">
+                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
+                                        <path d="M10.6 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L21.2 4.8C13.5 9.9 9.5 16.1 9.5 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S18.3 42.9 12.4 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                        <path d="M37.1 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L47.7 4.8C40 9.9 36 16.1 36 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S44.8 42.9 38.9 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonials__text">Профессиональный подход на всех этапах! От первой консультации до запуска сайта все было организовано четко. Особенно впечатлила работа с адаптивной версией.</p>
+                                <div class="testimonials__author">
+                                    <img src="img/reviews-aleksandr.jpg" alt="Александр Козлов" class="testimonials__avatar">
+                                    <div class="testimonials__info">
+                                        <div class="testimonials__name">Александр Козлов</div>
+                                        <div class="testimonials__position">Директор стоматологической клиники</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Отзыв 3 -->
+                        <div class="swiper-slide testimonials__slide">
+                            <div class="testimonials__card">
+                                <div class="testimonials__quote">
+                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
+                                        <path d="M10.6 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L21.2 4.8C13.5 9.9 9.5 16.1 9.5 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S18.3 42.9 12.4 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                        <path d="M37.1 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L47.7 4.8C40 9.9 36 16.1 36 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S44.8 42.9 38.9 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonials__text">Отличная работа с Tilda! Создали стильный лендинг для нашей фитнес-студии за кратчайшие сроки. Конверсия в заявки увеличилась в 2 раза. Рекомендую!</p>
+                                <div class="testimonials__author">
+                                    <img src="img/reviews-elena.jpg" alt="Елена Сидорова" class="testimonials__avatar">
+                                    <div class="testimonials__info">
+                                        <div class="testimonials__name">Елена Сидорова</div>
+                                        <div class="testimonials__position">Основатель фитнес-студии FlexFit</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Отзыв 4 -->
+                        <div class="swiper-slide testimonials__slide">
+                            <div class="testimonials__card">
+                                <div class="testimonials__quote">
+                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
+                                        <path d="M10.6 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L21.2 4.8C13.5 9.9 9.5 16.1 9.5 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S18.3 42.9 12.4 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                        <path d="M37.1 35.2c-5.7 0-10.1-4.5-10.1-10.3 0-8.8 6.2-17.5 17.1-24.4L47.7 4.8C40 9.9 36 16.1 36 21.7c.9-.3 1.9-.4 2.9-.4 5.9 0 10.6 4.8 10.6 10.8S44.8 42.9 38.9 42.9c-.6 0-1.2 0-1.8-.1V35.2z" fill="currentColor" opacity="0.1"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonials__text">Нужен был серьезный корпоративный сайт для юридической фирмы. A.S.K.I.V.G. справились на отлично! Строгий дизайн, удобная навигация, все работает безупречно.</p>
+                                <div class="testimonials__author">
+                                    <img src="img/reviews-dmitriy.jpg" alt="Дмитрий Волков" class="testimonials__avatar">
+                                    <div class="testimonials__info">
+                                        <div class="testimonials__name">Дмитрий Волков</div>
+                                        <div class="testimonials__position">Партнер юридической фирмы "Правосудие"</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Пагинация -->
+                    <div class="swiper-pagination testimonials__pagination"></div>
+                </div>
+
+                <!-- Кнопки навигации -->
+                <div class="testimonials__navigation">
+                    <button class="testimonials__nav testimonials__nav--prev">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button class="testimonials__nav testimonials__nav--next">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- НОВЫЙ БЛОК: Добавление отзыва -->
+            <div class="add-testimonial" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="add-testimonial__title">Оставьте свой отзыв</h3>
+                <form class="add-testimonial__form" id="testimonialForm">
+                    <div class="add-testimonial__row">
+                        <div class="add-testimonial__group">
+                            <label for="testimonialName">Ваше имя *</label>
+                            <input type="text" id="testimonialName" name="name" required maxlength="50">
+                        </div>
+                        <div class="add-testimonial__group">
+                            <label for="testimonialPosition">Должность / Компания</label>
+                            <input type="text" id="testimonialPosition" name="position" maxlength="100">
+                        </div>
+                    </div>
+                    <div class="add-testimonial__group">
+                        <label for="testimonialText">Ваш отзыв *</label>
+                        <textarea id="testimonialText" name="text" rows="4" required maxlength="500"></textarea>
+                    </div>
+                    <div class="add-testimonial__group">
+                        <label for="testimonialRating">Оценка</label>
+                        <select id="testimonialRating" name="rating" class="rating-select">
+                            <option value="5">★★★★★ Отлично</option>
+                            <option value="4">★★★★☆ Хорошо</option>
+                            <option value="3">★★★☆☆ Удовлетворительно</option>
+                            <option value="2">★★☆☆☆ Плохо</option>
+                            <option value="1">★☆☆☆☆ Очень плохо</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Опубликовать отзыв</button>
+                </form>
+            </div>
+
+            <!-- НОВЫЙ БЛОК: Последние комментарии -->
+            <div class="recent-comments" data-aos="fade-up" data-aos-delay="600">
+                <h3 class="recent-comments__title">Последние отзывы</h3>
+                <div class="recent-comments__list" id="recentCommentsList">
+                    <!-- Комментарии будут загружаться динамически -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION (Форма обратной связи) ========== -->
+    <section class="contact" id="contact">
+        <div class="contact__container">
+            <div class="contact__header" data-aos="fade-up">
+                <h2 class="contact__title">Готовы начать проект?</h2>
+                <p class="contact__subtitle">Расскажите о своих задачах, и мы предложим оптимальное решение</p>
+            </div>
+
+            <div class="contact__content">
+                <!-- Форма обратной связи -->
+                <div class="contact__form-container" data-aos="fade-right" data-aos-delay="200">
+                    <form class="contact__form" id="contactForm">
+                        <div class="contact__form-group">
+                            <label for="name" class="contact__form-label">Ваше имя</label>
+                            <input type="text" id="name" name="name" class="contact__form-input" required>
+                            <span class="contact__form-error" id="nameError"></span>
+                        </div>
+
+                        <div class="contact__form-group">
+                            <label for="email" class="contact__form-label">Email или Телефон</label>
+                            <input type="text" id="email" name="email" class="contact__form-input" required>
+                            <span class="contact__form-error" id="emailError"></span>
+                        </div>
+
+                        <div class="contact__form-group">
+                            <label for="project" class="contact__form-label">Краткое описание проекта</label>
+                            <textarea id="project" name="project" class="contact__form-textarea" rows="5" required></textarea>
+                            <span class="contact__form-error" id="projectError"></span>
+                        </div>
+
+                        <div class="contact__form-group contact__form-group--checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" class="contact__form-checkbox" required>
+                            <label for="privacy" class="contact__form-checkbox-label">
+                                Согласен с <a class="contact__form-link" href="privacy-policy.html" target="_blank" >политикой конфиденциальности</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="contact__form-submit btn btn--primary btn--large">
+                            <span class="contact__form-submit-text">Отправить заявку</span>
+                            <span class="contact__form-submit-loader"></span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Контактная информация -->
+                <div class="contact__info" data-aos="fade-left" data-aos-delay="400">
+                    <div class="contact__info-card">
+                        <h3 class="contact__info-title">Свяжитесь с нами</h3>
+                        <div class="contact__info-item">
+                            <div class="contact__info-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact__info-text">
+                                <strong>Email:</strong>
+                                <a href="mailto:hello@askvg.ru">hello@askivg.ru</a>
+                            </div>
+                        </div>
+
+                        <div class="contact__info-item">
+                            <div class="contact__info-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div class="contact__info-text">
+                                <strong>Телефон:</strong>
+                                <a href="tel:+79001234567">+7 (900) 123-45-67</a>
+                            </div>
+                        </div>
+
+                        <div class="contact__info-item">
+                            <div class="contact__info-icon">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="contact__info-text">
+                                <strong>Время работы:</strong>
+                                Пн-Пт: 9:00 - 18:00
+                            </div>
+                        </div>
+
+                        <div class="contact__social">
+                            <h4 class="contact__social-title">Мы в соцсетях:</h4>
+                            <div class="contact__social-links">
+                                <a href="#" class="contact__social-link" aria-label="Telegram">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.787L22.95 5.424c.309-1.239-.473-1.8-1.285-1.707z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="contact__social-link" aria-label="WhatsApp">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.531 3.488"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="contact__social-link" aria-label="Behance">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.48.348-1.05.6-1.69.76-.65.16-1.36.24-2.13.24H0V4.51h6.938v-.007zM3.495 8.21h2.563c.62 0 1.11-.89 1.45-.267.34-.378.51-.644.51-1.07 0-.33-.062-.6-.18-.82-.12-.22-.295-.39-.524-.52-.23-.14-.5-.23-.81-.26-.31-.04-.65-.06-1.02-.06H3.495V8.21zm0 4.72h3.05c.44 0 .81-.05 1.11-.16.3-.11.55-.26.75-.45.2-.2.34-.43.43-.7.09-.26.14-.55.14-.85 0-.68-.17-1.15-.52-1.44-.35-.3-.84-.44-1.47-.44H3.495v4.05zM17.474 8.78c.44.66.66 1.47.66 2.44 0 .2-.013.39-.04.59-.025.2-.06.36-.11.49H13.05c.08.85.33 1.45.75 1.8.42.35.95.53 1.59.53.5 0 .94-.11 1.31-.35.37-.24.63-.49.78-.75h2.29c-.38 1.09-.98 1.86-1.8 2.32-.82.46-1.77.69-2.85.69-.67 0-1.29-.087-1.86-.26-.57-.18-1.07-.43-1.49-.78-.42-.35-.75-.77-.99-1.26-.24-.5-.36-1.04-.36-1.65 0-.6.13-1.14.38-1.65.25-.5.59-.93 1.01-1.28.42-.35.91-.62 1.47-.8.56-.18 1.16-.27 1.8-.27.66 0 1.25.09 1.77.27.52.18.96.43 1.32.75zm-3.68 2.3c0-.58-.14-1.05-.42-1.41-.27-.35-.65-.53-1.14-.53-.29 0-.55.04-.78.13-.23.09-.43.2-.59.35-.16.15-.29.32-.38.51-.09.2-.15.39-.18.59h3.49v.36zM15.17 2.76h4.68v1.17h-4.68V2.76z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="contact__social-link" aria-label="GitHub">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER (Подвал) ========== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <!-- Логотип и описание -->
+                <div class="footer__brand">
+                    <div class="footer__logo">A.S.K.I.V.G.</div>
+                    <p class="footer__description">Архитекторы цифрового пространства. Создаем сайты, которые работают на результат.</p>
+                </div>
+
+                <!-- Навигация -->
+                <nav class="footer__nav">
+                    <h4 class="footer__nav-title">Навигация</h4>
+                    <ul class="footer__nav-list">
+                        <li><a href="#principles" class="footer__nav-link">Принципы</a></li>
+                        <li><a href="#technologies" class="footer__nav-link">Технологии</a></li>
+                        <li><a href="#portfolio" class="footer__nav-link">Портфолио</a></li>
+                        <li><a href="#process" class="footer__nav-link">Процесс</a></li>
+                        <li><a href="#contact" class="footer__nav-link">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Услуги -->
+                <div class="footer__services">
+                    <h4 class="footer__services-title">Услуги</h4>
+                    <ul class="footer__services-list">
+                        <li class="footer__services-item">Разработка на HTML/CSS/JS</li>
+                        <li class="footer__services-item">WordPress сайты</li>
+                        <li class="footer__services-item">Лендинги на Tilda</li>
+                        <li class="footer__services-item">UI/UX Дизайн</li>
+                        <li class="footer__services-item">Техническая поддержка</li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div class="footer__contacts">
+                    <h4 class="footer__contacts-title">Контакты</h4>
+                    <div class="footer__contacts-list">
+                        <a href="mailto:hello@askvg.ru" class="footer__contact-item">hello@askivg.ru</a>
+                        <a href="tel:+79001234567" class="footer__contact-item">+7 (900) 123-45-67</a>
+                    </div>
+                    
+                    <!-- Социальные сети -->
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Telegram">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.787L22.95 5.424c.309-1.239-.473-1.8-1.285-1.707z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.531 3.488"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Behance">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.48.348-1.05.6-1.69.76-.65.16-1.36.24-2.13.24H0V4.51h6.938v-.007zM3.495 8.21h2.563c.62 0 1.11-.89 1.45-.267.34-.378.51-.644.51-1.07 0-.33-.062-.6-.18-.82-.12-.22-.295-.39-.524-.52-.23-.14-.5-.23-.81-.26-.31-.04-.65-.06-1.02-.06H3.495V8.21zm0 4.72h3.05c.44 0 .81-.05 1.11-.16.3-.11.55-.26.75-.45.2-.2.34-.43.43-.7.09-.26.14-.55.14-.85 0-.68-.17-1.15-.52-1.44-.35-.3-.84-.44-1.47-.44H3.495v4.05zM17.474 8.78c.44.66.66 1.47.66 2.44 0 .2-.013.39-.04.59-.025.2-.06.36-.11.49H13.05c.08.85.33 1.45.75 1.8.42.35.95.53 1.59.53.5 0 .94-.11 1.31-.35.37-.24.63-.49.78-.75h2.29c-.38 1.09-.98 1.86-1.8 2.32-.82.46-1.77.69-2.85.69-.67 0-1.29-.087-1.86-.26-.57-.18-1.07-.43-1.49-.78-.42-.35-.75-.77-.99-1.26-.24-.5-.36-1.04-.36-1.65 0-.6.13-1.14.38-1.65.25-.5.59-.93 1.01-1.28.42-.35.91-.62 1.47-.8.56-.18 1.16-.27 1.8-.27.66 0 1.25.09 1.77.27.52.18.96.43 1.32.75zm-3.68 2.3c0-.58-.14-1.05-.42-1.41-.27-.35-.65-.53-1.14-.53-.29 0-.55.04-.78.13-.23.09-.43.2-.59.35-.16.15-.29.32-.38.51-.09.2-.15.39-.18.59h3.49v.36zM15.17 2.76h4.68v1.17h-4.68V2.76z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="GitHub">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Копирайт -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 A.S.K.I.V.G. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== MODAL (Модальные окна проектов) ========== -->
+    <div class="modal" id="projectModal">
+        <div class="modal__overlay" onclick="closeProjectModal()"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeProjectModal()">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <div class="modal__body" id="modalBody">
+                <!-- Контент модального окна будет загружаться динамически -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов библиотек -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Основной скрипт -->
+    <!-- <script src="js/script.js"></script> -->
+
+    <script src="js/bundle.js"></script>
+</body>
+</html>

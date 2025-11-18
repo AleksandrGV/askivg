@@ -1,0 +1,1026 @@
+@font-face {
+	font-family: "HelveticaNeueCyr-Thin";
+	src: url("../fonts/HelveticaNeue/HelveticaNeueCyr-Thin.otf");
+}
+@font-face {
+	font-family: "HelveticaNeueCyr-Light";
+	src: url("../fonts/HelveticaNeue/HelveticaNeueCyr-Light.otf");
+}
+@font-face {
+	font-family: "HelveticaNeueCyr-Bold";
+	src: url("../fonts/HelveticaNeue/HelveticaNeueCyr-Bold.otf");
+}
+@font-face {
+	font-family: "roboto-thin";
+	src: url("../fonts/roboto-thin.ttf");
+}
+@font-face {
+	font-family: "Evolventa";
+	src: url("../fonts/10359.ttf");
+}
+@font-face {
+	font-family: "Evolventa Bold";
+	src: url("../fonts/10360.ttf");
+}
+html, body {
+    overflow: -webkit-paged-y;
+	margin: 0;
+	padding: 0;
+}
+h1,
+h2,
+h3 {
+   display: inline-block;
+   position: relative;
+   font-size: 43px;
+   color: #18469c;
+}
+h5 {
+   font-family: "HelveticaNeueCyr-Thin";
+   font-size: 16px;
+   color: #18469c;
+}
+a {
+	color: #18469c;
+}
+a:hover {
+	text-decoration: none;
+}
+.navbar-inverse .navbar-nav .active a,
+.navbar-inverse .navbar-nav .active a:focus,
+.navbar-inverse .navbar-nav .active a:hover {
+	background: #005798;
+}
+
+/*--------------------------------------------
+----------------Header-------------------------
+--------------------------------------------*/
+header .container-fluid .logotype {
+	float: left;
+	position: relative;
+	padding: 14px 0 14px 4.5%;
+	margin-left: 30px;
+}
+header .container-fluid .logotype:before {
+	display: block;
+	content: "";
+	position: absolute;
+    width: 57px;
+    height: 68px;
+    background: url(../images/logotype.png) no-repeat;
+    top: 16px;
+    left: -6px;
+}
+header a h3 {
+	font-family : "HelveticaNeueCyr-Bold";
+    font-weight : bold;
+    font-size : 19px;
+    line-height : 19.94px;
+    letter-spacing : -0.48px;
+    color : #18469C;
+    text-transform: uppercase;
+    margin: 0;
+}
+header a p {
+	font-family : "HelveticaNeueCyr-Light";
+    font-size : 11px;
+    letter-spacing : 0.44px;
+    color : #989898;
+    margin: -3px 0;
+}
+header .text-right {
+	font-family: "HelveticaNeueCyr-Light";
+	font-size: 14px;
+	letter-spacing : 0.56px;
+    line-height: 98px;
+}
+header .text-right a:first-child {
+	margin-right: 0.5%;
+}
+header .text-right a:nth-child(2) {
+	margin: 0 1%;  
+}
+header .icon-ir,
+header .icon-pa {	
+	width: 35px;
+	height: 37px;
+	top: 15px;
+	left: -7px;
+}
+header .icon-ir {
+	background: url("../images/icon-ir.png") no-repeat;
+	background-size: 100%;
+	left: -5px;
+}
+header .icon-pa {
+	background: url("../images/icon-pa.png") no-repeat;
+	background-size: 100%;
+}
+header .phone {
+	color: #770000;
+	margin-right: 1%;
+}
+/* --------------------------------------------------
+-----------------Navbar------------------------------
+-------------------------------------------------- */
+
+.navbar {
+	position: relative;
+	border-radius: 0;
+	border: none;
+	background: #005798;
+	margin-bottom: 0;
+}
+.navbar:before {
+	display: block;
+	content: "";
+	position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 46px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+}
+.navbar-inverse .navbar-nav li a { 
+	color: #ffffff;
+	padding: 12px 5px 12px 5px;
+	font-family: "roboto-thin";
+	letter-spacing: -0.028em;
+	font-size: 21px;	
+}
+.navbar .container-fluid {
+	padding-left: 22px;
+	padding-right: 8px;
+}
+nav .navbar-form input[type="text"] {
+	width: 35px;
+	background: url("../images/icon-search.png") no-repeat right;
+	padding-left: 20px;
+  cursor: pointer;
+  border: none;
+
+	border-radius: 10em;
+   -webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	
+	-webkit-transition: left 1s ease-out 0.5s;
+	-moz-transition: left 1s ease-out 0.5s;
+	transition: left 1s ease-out 0.5s;
+}
+nav form input[type="text"]:hover {
+	opacity: 0.9;
+}
+nav form input[type="text"]:focus {
+	width: 320px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+header .breadcrumb {
+  padding-left: 40px;
+  margin-bottom: 0;
+  font-size : 11px;
+}
+header .breadcrumb a {
+  color : #989898;
+}
+header .breadcrumb li {
+  color: #18469c;
+  font-weight: bold;
+}
+.breadcrumb>li+li:before {
+  content: "";
+  background: url("../images/arrow-crumbs.png") no-repeat;
+  background-position: -2px -2px;
+}
+/* --------------------------------------------------
+-----------------Tagline-image--------------------------
+-------------------------------------------------- */
+.tagline-image {
+  position: relative;
+}
+.tagline-image .container-fluid {
+  padding: 0;   
+}
+.tagline-image img {
+  width: 100%;
+	z-index: 10;
+}
+.tagline-image .text-left {
+  display: inline-block;
+  position: absolute;
+  z-index: 50;
+  top: 0px;
+  left: 40px;
+  margin-right: 350px;
+}
+.tagline-image h1 {
+	line-height: 50px;
+	letter-spacing: -0.04em;
+  word-spacing: 0.075em;
+  margin-top: 12px;
+}
+.tagline-image p {
+  position: relative;
+  line-height : 21px;
+  margin: 4% 0 3% 8%;
+  font-size: 24px;
+  font-family: "HelveticaNeueCyr-Light";
+  color: #000000;
+  letter-spacing: -0.03em;
+  word-spacing: -0.005em;
+}
+.tagline-image p:before {
+	display: block;
+	content: "";
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: url("../images/arrow.png") no-repeat;
+	top: -5px;
+	left: -5%;
+}
+/* --------------------------------------------------
+-----------------Main--------------------------------
+-------------------------------------------------- */
+main.container-fluid {
+	margin: 0 25px;
+}
+main h2 {
+	margin-top: 0;
+	top: -70px;
+	z-index: 50;
+	letter-spacing: -0.036em;
+}
+main h2:after,
+main h3:after,
+footer h3:after {
+	display: block;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: #C9D6DE;
+	bottom: -5px;
+}
+main .electronic-services p {
+	font-family: "HelveticaNeueCyr-Light";
+	font-size: 24px;
+    line-height : 27px;
+    margin-top: -58px;
+    color: #000000;
+    letter-spacing: -0.025em;
+    word-spacing: -0.008em;
+    margin-right: 5%;
+    margin-bottom: 5px;
+}
+main .electronic-services .row div a {
+	font-family : "HelveticaNeueCyr-Thin";
+	width: 96%;
+	border: 1px solid #C9D6DE;
+	margin: 0 2% 1% 2%;
+	display: block;
+    padding: 24% 0;
+    text-transform: uppercase;
+    font-size: 21px;
+    color: #18469c;
+    letter-spacing: -0.06em;
+    word-spacing: -0.005em;
+}
+main .content h3 {
+	margin: 10px 0 25px;
+	letter-spacing: -0.025em;
+}
+main .content span {
+	font-family : "HelveticaNeueCyr-Thin";
+    color: #333333;
+    font-size: 12px;
+}
+main .content h5 {
+    margin-top: 0;
+}
+main .content p {
+	font-family : "HelveticaNeueCyr-Thin";
+	font-size: 14px;
+    color: #333333;
+}
+main .content h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+main .content h5 {
+    margin-bottom: 10px;
+}
+main .content .row {
+    margin-bottom: 8px;
+}
+main .content .row div {
+    margin-bottom: 10px;
+}
+main .сompany-website-update p:nth-child(4) {
+    margin-top: 15px;
+}
+main .сompany-website-update img {
+    max-width: 100%;
+    margin-bottom: 25px;
+}
+main .сompany-website-update .publication-date {
+    font-size: 12px;
+    margin-top: 5px;
+}
+main .сompany-website-update h3 {
+    margin-top: 12px;
+}
+main section h3 {
+    margin-bottom: 28px;
+}
+main .about-us p {
+    max-width: 70%;
+    letter-spacing: 0.56px;
+    margin-bottom: 8px;
+}
+main .tasks {
+    margin-bottom: 96px;
+}
+main .tasks p {
+    position: relative;
+    padding-left: 45px;
+    padding-right: 120px;
+    margin-bottom: 12px;
+}
+main .tasks p:before {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: url("../images/arrow-001.png") no-repeat;
+    position: absolute;
+    top: 4px;
+    left: 12px;
+}
+main .certificate .row {
+    margin-left: 20px;
+    margin-right: 50px;
+}
+main .certificate img {
+     max-width: 100%;
+}
+main .contact h2 {
+     top: 0;
+}
+main.registry {
+     margin: 0;
+}
+main.registry .registry-gsk iframe {
+     width: 100%;
+}
+main.registry .registry-gsk h3 {
+     margin-left: 20px;
+}
+main .electronic-services.registry-gsk p {
+     margin-top: 0;
+}
+main .contact h2,
+main .contact h3 {
+      font-size : 35px;
+      margin-top: 25px;
+}
+main .contact .address-gsk {
+     position: relative;
+     margin-top: 15px;
+}
+main .mode-of-operation, 
+main .feedback-form {
+     position: absolute;
+}
+main .mode-of-operation {
+      top: 495px;
+}
+main .feedback-form {
+      top: 660px;
+}
+main .contact button,
+main .full-registry-gsk button,
+main .adding-register button {
+      display: block;
+      font-size: 21px;
+      background: #C9D6DE;
+      color: #005798;      
+      text-transform: uppercase;
+      border-radius: 0;
+}
+main .feedback-form button {
+      padding: 3px 59px;
+}
+main .contact .information-technology-support-service button {
+    padding: 3px 5px;
+    margin-top: 5px;
+}
+main .information-technology-support-service {
+    margin-top: 10px;
+}
+main .full-registry-gsk {
+    margin: 0 20px;
+}
+main .full-registry-gsk .description-full-registry-gsk {
+    font-size : 24px;
+    line-height : 27px;
+    margin-bottom: 25px;
+}
+main .full-registry-gsk button {
+    width: 100%;
+
+}
+main .full-registry-gsk .row-flex .column {
+    border: 1px solid #C9D6DE;
+}
+main .full-registry-gsk .row-flex .column p {
+    font-size : 14px;
+    line-height : 27px;
+    margin-left: 15px;
+    text-transform: uppercase;
+}
+main .adding-register button {
+    margin-left: 20px;
+
+}
+main .adding-register p {
+    font-family : "HelveticaNeueCyr-Thin";
+    font-size : 21px;
+    margin-left: 20px;
+}
+/* --------------------------------------------------
+----------------- Footer ----------------------------
+-------------------------------------------------- */
+footer .container-fluid {
+	margin: 0 25px;
+}
+footer h3 {
+	margin-top: 26px;
+	letter-spacing: -0.09em;
+}
+footer.сompany-website-update h3 {
+  margin-top: 0;
+}
+.carousel .carousel-control {
+  opacity: 0;
+} 
+.carousel .carousel-control .glyphicon-chevron-left {
+  left: 10px;
+}
+.carousel .carousel-control .glyphicon-chevron-right {
+  right: 10px;
+}
+footer .carousel-inner .item img {
+	margin: 0 auto;
+}
+footer .row {
+	display: flex;
+	position: relative;
+	margin: 30px 0;
+}
+footer .row:before {
+	display: block;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: #C9D6DE;
+	top: -20px;
+}
+footer .row div {
+	padding: 0 5px;
+}
+footer .row .address p,
+footer .row .agreement,
+footer .row .socseti {
+	 font-family: "HelveticaNeueCyr-Light";
+}
+footer .row .address p:first-child,
+footer .row .address p:last-child {
+   color: #000000;
+}
+footer .row .address p:first-child {
+  line-height : 14px;
+  font-size: 12px;
+  padding-right: 20%;
+  margin-bottom: 15px;
+}
+footer .row .address p:last-child {
+  font-size : 10px;
+  line-height : 15px;
+}
+footer .row .menu-footer .navbar-nav li a,
+footer .row .agreement,
+footer .row .socseti {
+  font-size: 12px;
+  line-height : 15px;
+  color: #18469c;
+}
+footer .row .menu-footer .navbar-nav li a {
+	padding: 5px;
+}
+footer .row .agreement {
+	margin-left: 2%;
+	padding-left: 4%;
+}
+footer .row .agreement a {
+  position: relative;
+	display: block;
+}
+footer .row .agreement p:last-child {
+	margin-bottom: 15px;
+}
+footer .row .agreement .icon-16 {
+  display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url("../images/icon-16.png") no-repeat;
+  right: -16%;
+  position: absolute;
+  top: -7px;
+
+}
+footer .row .socseti p:last-child {
+	margin-right: 9%;
+	margin-top: 15px;
+}
+footer .row .socseti .instagram {
+	margin: 0 7px;
+}
+footer.contact h3 {
+  margin-top: 15px;
+}
+/* ------------------------------------------
+---------------Стили мин 320px >-----------------------
+------------------------------------------ */
+@media screen and (min-width: 320px) and (max-width: 499px) {
+  h1 {
+   	font-size: 18px;
+    }
+  h2,
+  h3 {
+    font-size: 27px;
+    }
+  header .container-fluid,
+  main.container-fluid,
+  footer .container-fluid {
+  	     margin: 0;
+         padding: 0;
+    }
+  header .container-fluid .logotype {
+	     float: none;
+         display: block;
+         padding-left: 75px;
+         padding-bottom: 0;
+         margin-left: 5px;
+	}
+  header .container-fluid .logotype:before {
+         top: 14px;
+  	     left: 10px;
+    }
+  header .text-right {
+         margin: -30px 0 -18px;
+         display: block;
+    }
+  header .text-right a,
+  header .text-right .phone {
+  	     height: 40px;
+         text-align: center;
+         display: inline-block;
+         margin-top: 11px;
+    }
+  header .text-right .phone {
+          margin-left: 80px;
+          margin-right: 10px;
+  }
+  .navbar-inverse .navbar-toggle:focus, 
+  .navbar-inverse .navbar-toggle:hover {
+         background: #005798;
+  }
+  nav form input[type="text"]:focus {
+         width: 280px;
+  }
+  .navbar-inverse .navbar-form {
+         border-top: 1px solid #ffffff;
+         border: none;
+  }
+  .tagline-image {
+         margin-bottom: 35px;
+  }
+  .tagline-image .text-left {
+  	     width: 100%;
+         position: relative;
+         left: 12px;
+         right: 0;
+         margin: 0;
+    }
+   .tagline-image .text-left h1 {
+        line-height: 25px;
+   }
+   .tagline-image p {
+        font-size : 14px;
+        line-height : 21px;
+        padding-left: 10px;
+   }
+   .tagline-image p:before {
+        background-size: 100%;
+        top: -3px;
+        left: -25px;
+        width: 25px;
+        height: 25px;
+
+   }
+  main h2 {
+  	     top: 10px;
+  	     margin-bottom: 20px;
+         padding: 0 15px;
+    }
+  main .electronic-services p {
+        margin: 0 10px 10px;
+        font-size: 16px;
+        padding: 0 2px 0 5px;
+     }
+  main .electronic-services .row {
+        margin: 5px 10px;
+     }
+  main .electronic-services .row .col-micro-12{
+         margin: 20px 0;
+     }
+   main .сompany-website-update .row div p.col-micro-12 {
+          margin-left: 0;
+      }
+  main .electronic-services .row .col-micro-12,
+  footer .carousel .carousel-inner img.col-micro-12,
+  footer .row .col-micro-12 .collapse ,
+  footer .col-micro-12 {
+        display: block!important;
+        
+     }
+  main .full-registry-gsk .description-full-registry-gsk,
+  main .adding-register p {
+        font-size: 16px;
+  }
+  main .content {
+        padding: 0 10px;
+      }
+  main .content .col-micro-12 {
+        display: block!important;
+      }
+  main .about-us {
+        margin: 0 40px;
+  }
+  main .about-us p {
+        max-width: 100%;
+  }
+  main .tasks {
+        padding: 0 40px;
+      }
+  main .tasks p {
+        padding: 0;
+      }
+  main .tasks p:before {
+        left: -20px;
+       }
+  main .certificate .row {
+          text-align: center;
+      }
+  main .certificate .row img {
+          margin: 15px auto;
+      }
+  main .сompany-website-update .row {
+         text-align: justify;
+         margin: 0 auto;
+      }
+  main .сompany-website-update .row img {
+         width: 96%;
+      }
+  main .contact h1 {
+         font-size: 35px;
+      }
+  main iframe {
+        width: 100%;
+     }
+  main .contact .mode-of-operation,
+  main .contact .feedback-form {
+         position: relative;
+         top: 0;
+     }
+  .hidden-micro,
+  footer .carousel .carousel-inner img.hidden-micro {
+   	      display: none;
+     }
+  .col-micro-12 {
+   	      width: 100%;
+          margin-left: 8px;
+   	 }
+  footer h3 {
+         margin-left: 40px;
+     }
+  footer .carousel .carousel-inner img.col-micro-12 {
+         width: 60%;
+      }
+  footer .row {
+         flex-direction: column;
+      }
+  footer .row .address {
+         order: 4;
+      }
+  footer .row .address p:last-child {
+    padding-right: 80px;
+      }
+  footer .row .menu-footer {
+         order: 1;
+      }
+  footer .row .agreement {
+         order: 2;
+         padding-left: 0;
+         margin-left: 11px;
+      }
+  footer .row .agreement .icon-16 {
+         left: 190px;
+         top: 25px;
+      }
+  footer .row .socseti {
+         order: 3;
+         text-align: left;
+         margin-bottom: 6px;
+      }
+  footer .collapse {
+          display: block;
+          margin: 0 -100px 0 10px;
+      }
+  footer .collapse ul {
+          display: flex;     
+      }
+}
+/* --------------------------------------------
+-----------------min-678px max-991px----------
+--------------------------------------------- */
+@media screen and (min-width: 500px) and (max-width: 677px) {
+  header,
+  footer .container-fluid {
+    margin: 0 auto;
+    padding: 0;
+  }
+  h1,
+  h2,
+  h3 {
+     font-size: 18px;
+   }
+  header .container-fluid .logotype {
+        float: none;
+        display: block;
+        padding-left: 55px;
+    }
+  .tagline-image .text-left {
+        margin: 0;
+  }
+   .tagline-image .text-left h1 {
+        line-height: 24px;
+        margin-right: 60px;
+        top: -10px;
+        left: -20px;
+    }
+   .tagline-image .text-left p {
+         font-size: 10px;
+         margin: 5px 5px 5px 8px;
+    }
+   .tagline-image .text-left p:before {
+         width: 20px;
+         height: 20px;
+         background-size: 100%;
+         top: 0;
+         left: -25px;
+    } 
+  main h2 {
+         top: -5px;
+    }
+  main .electronic-services p {
+          margin: 0 0 10px;
+          font-size: 12px;
+     }
+  main .certificate .row {
+          margin-left: 10px;
+          margin-right: 10px;
+     }
+   main .сompany-website-update .row {
+          width: 100%;    
+     }
+   main .сompany-website-update .row p {
+          text-align: justify;
+      }
+  main .contact h1 {
+         font-size: 35px;
+      }
+  main .contact .mode-of-operation,
+  main .contact .feedback-form {
+         position: relative;
+         top: 0;
+     }
+   main .full-registry-gsk .row .column button {
+        font-size: 16px;
+     }
+  footer .container-fluid h3 {
+          margin: 15px 40px;
+     }
+  footer .container-fluid .carousel {
+          margin: 0 5px;
+     }
+  footer .collapse {
+          display: block;
+     }
+  footer .collapse ul {
+          display: flex;
+          margin: 0 -21px 0 -13px;
+     }
+  footer .row .agreement {
+          padding-left: 7px;
+          padding-top: 7px;
+     }
+  footer .row .agreement .icon-16 {
+          right: -1%;
+     }
+  footer .row .socseti {
+          text-align: center;
+     }
+}
+/* --------------------------------------------
+-----------------min-678px max-991px----------
+--------------------------------------------- */
+@media screen and (min-width: 678px) and (max-width: 768px) {
+   h1,
+   h2,
+   h3 {
+   	    font-size: 22px;
+   }
+  header .container-fluid .logotype {
+		    clear: left;
+        display: block;
+        padding-left: 65px;
+	}
+  header .text-right {
+		    clear: left;
+        text-align: center;
+    }
+  .tagline-image .text-left h1 {
+         line-height: 30px;
+         margin: 0 -80px 0 0;
+    }
+  .tagline-image .text-left p {
+          font-size: 14px;
+          margin: 10px 10px 5px 25px;
+    }
+  .tagline-image .text-left p:before {
+         width: 20px;
+         height: 20px;
+         background-size: 100%;
+         top: 0;
+         left: -25px;
+    }
+  main h2 {
+         top: -20px;
+  }
+  main .electronic-services p {
+          font-size: 12px;
+          margin-top: -20px;
+     }
+  main .certificate .row {
+          margin-left: 10px;
+          margin-right: 10px;
+     }
+  main .сompany-website-update .row div p {
+          font-size: 12px;
+      }
+  main .contact h1 {
+         font-size: 35px;
+      }
+  main .contact .mode-of-operation,
+  main .contact .feedback-form {
+         position: relative;
+         top: 0;
+      }
+  footer .row .agreement .icon-16 {
+          right: 10%;
+     }
+  footer .collapse {
+          display: block;
+          margin: 0 -100px 0 10px;
+  }
+  footer .collapse ul {
+          display: flex;     
+  }
+}
+/* --------------------------------------------
+-----------------min-768px max-991px----------
+--------------------------------------------- */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  h1,
+  h2,
+  h3 {
+     	font-size: 25px;
+    }
+  header .container-fluid .logotype {
+  	padding-left: 7.5%;
+  	margin-left: 20px;
+  }
+  .navbar-inverse .navbar-nav li a {
+        font-size: 20px;
+    }
+  .tagline-image .text-left h1 {
+         line-height: 35px;
+         margin: 0;
+    } 
+  .tagline-image .text-left p {
+          font-size: 16px;
+          margin: 10px 10px 5px 35px;
+    }
+  .tagline-image .text-left p:before {
+         width: 25px;
+         height: 25px;
+         background-size: 100%;
+         top: 0;
+         left: -30px;
+    }
+  main h2 {
+         top: -30px;
+    } 
+  main .electronic-services p {
+          font-size: 14px;
+          margin-top: -30px;
+    }
+  main .certificate .row {
+          margin-left: 10px;
+          margin-right: 10px;
+     }
+  main .contact iframe {
+        width: 100%;
+     }
+  main .full-registry-gsk .row .column button {
+        font-size: 16px;
+     }
+  footer .row .agreement .icon-16 {
+          right: 20%;
+    }
+}
+/* --------------------------------------------
+-----------------min-992px max-1199px----------
+--------------------------------------------- */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	h1,
+	h2,
+	h3 {
+		font-size: 34px;
+	}
+	header .container-fluid .logotype:before {
+		left: -15px;
+	}
+	.tagline-image .text-left h1 {
+           line-height: 40px;
+           margin: 5px;
+           padding-right: 25px;
+      } 
+  .tagline-image .text-left p {
+           font-size: 18px;
+           margin: 15px 10px 20px 50px;
+      }
+   .tagline-image .text-left p:before {
+           width: 30px;
+           height: 30px;
+           background-size: 100%;
+           top: -5px;
+           left: -35px;
+      }
+  main .electronic-services p {
+         font-size: 19px;
+         padding-top: 10px;
+    }
+  footer .row .socseti {
+         text-align: center;
+  }
+  footer .row .agreement .icon-16 {
+         right: 8%;
+   }
+}
+/* --------------------------------------------
+-----------------min-1200px--------------------
+--------------------------------------------- */
+@media screen and (min-width: 1200px) {
+	footer .row .address {
+		width: 35%;
+    }
+    footer .row .menu-footer {
+		width: 30%;
+		margin-top: -5px;
+    }
+    footer .row .socseti {
+		width: 20%;
+	}
+
+}
