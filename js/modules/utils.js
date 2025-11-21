@@ -1,4 +1,4 @@
-class Notification {
+export class Notification {
     show(message, type = 'info') {
         const notification = document.createElement('div');
         notification.className = `notification notification--${type}`;
@@ -36,7 +36,7 @@ class Notification {
     }
 }
 
-class SmoothScroll {
+export class SmoothScroll {
     static init() {
         const navLinks = document.querySelectorAll('a[href^="#"]');
         
@@ -61,7 +61,34 @@ class SmoothScroll {
     }
 }
 
-class ResizeHandler {
+export class ScrollEffects {
+    static init() {
+        let ticking = false;
+        
+        function updateScrollEffects() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero__decoration');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+            
+            ticking = false;
+        }
+        
+        function requestScrollUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestScrollUpdate);
+    }
+}
+export class ResizeHandler {
     static init(callback) {
         let resizeTimeout;
         
@@ -74,7 +101,7 @@ class ResizeHandler {
     }
 }
 
-function throttle(func, limit) {
+export function throttle(func, limit) {
     let inThrottle;
     return function() {
         const args = arguments;
@@ -87,7 +114,7 @@ function throttle(func, limit) {
     };
 }
 
-function debounce(func, wait, immediate) {
+export function debounce(func, wait, immediate) {
     let timeout;
     return function() {
         const context = this, args = arguments;
@@ -106,7 +133,7 @@ function debounce(func, wait, immediate) {
     };
 }
 
-function isElementInViewport(el) {
+export function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
         rect.top >= 0 &&
@@ -115,12 +142,3 @@ function isElementInViewport(el) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
-
-module.exports = {
-    Notification,
-    SmoothScroll,
-    ResizeHandler,
-    throttle,
-    debounce,
-    isElementInViewport
-};

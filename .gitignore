@@ -54,3 +54,5 @@ credentials.json
 
 # ========== ПАПКА OSPANEL (ЛОКАЛЬНЫЙ СЕРВЕР) ==========
 .osp/
+
+vendor/

@@ -12,7 +12,7 @@ export class ProjectModal {
         if (!this.modal || !this.modalBody || !projectData[projectId]) {return;}
         
         const project = projectData[projectId];
-        const projectComments = await this.commentSystem.loadComments(projectId);
+        // const projectComments = await this.commentSystem.loadComments(projectId);
         
         this.modalBody.innerHTML = this.createModalHTML(project, projectId);
         

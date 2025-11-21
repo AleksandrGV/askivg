@@ -1,14 +1,14 @@
-const { Preloader } = require('./modules/preloader.js');
-const { Navigation } = require('./modules/navigation.js');
-const { Animations } = require('./modules/animations.js');
-const { TechnologiesSphere } = require('./modules/technologies-sphere.js');
-const { Portfolio } = require('./modules/portfolio.js');
-const { ProjectModal } = require('./modules/modal.js');
-const { Sliders } = require('./modules/sliders.js');
-const { CommentSystem } = require('./modules/comments.js');
-const { Forms } = require('./modules/forms.js');
-const { SmoothScroll } = require('./modules/utils.js');
-const { ScrollManager } = require('./modules/scroll-effects.js');
+import { Preloader } from './modules/preloader.js';
+import { Navigation } from './modules/navigation.js';
+import { Animations } from './modules/animations.js';
+import { TechnologiesSphere } from './modules/technologies-sphere.js';
+import { Portfolio } from './modules/portfolio.js';
+import { ProjectModal } from './modules/modal.js';
+import { Sliders } from './modules/sliders.js';
+import { CommentSystem } from './modules/comments.js';
+import { Forms } from './modules/forms.js';
+import { SmoothScroll } from './modules/utils.js';
+import { ScrollManager } from './modules/scroll-effects.js';
 
 class App {
     constructor() {
@@ -45,16 +45,19 @@ class App {
     }
 
     setupGlobalHandlers() {
+        // Глобальные обработчики
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.projectModal.close();
             }
         });
 
+        // Экспорт глобальных функций
         window.openProjectModal = (projectId) => this.projectModal.open(projectId);
         window.closeProjectModal = () => this.projectModal.close();
     }
 }
 
+// Запуск приложения
 const app = new App();
 app.init();

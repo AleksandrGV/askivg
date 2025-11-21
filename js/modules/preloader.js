@@ -1,6 +1,6 @@
-const { CONFIG } = require('./config.js');
+import { CONFIG } from './config.js';
 
-class Preloader {
+export class Preloader {
     constructor() {
         this.preloader = document.getElementById('preloader');
         this.progressLine = document.getElementById('progressLine');
@@ -43,5 +43,3 @@ class Preloader {
         }
     }
 }
-
-module.exports = { Preloader };

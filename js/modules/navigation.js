@@ -1,4 +1,4 @@
-class Navigation {
+export class Navigation {
     constructor() {
         this.navToggle = document.getElementById('navToggle');
         this.navList = document.querySelector('.nav__list');
@@ -72,5 +72,3 @@ class Navigation {
         });
     }
 }
-
-module.exports = { Navigation };

@@ -367,7 +367,7 @@
                             <p class="portfolio__item-category">HTML/CSS/JS • Корпоративный сайт</p>
                             <div class="portfolio__item-buttons">
                                 <a href="proekty/ukb/index.html" class="btn btn--small btn--outline" target="_blank">Посмотреть сайт</a>
-                                <button class="btn btn--small btn--primary" onclick="openProjectModal()">Подробнее</button>
+                                <button class="btn btn--small btn--primary" onclick="openProjectModal(11)">Подробнее</button>
                             </div>
                         </div>
                     </div>
@@ -845,13 +845,22 @@
     </div>
 
     <!-- Подключение скриптов библиотек -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+     <script type="importmap">
+        {
+            "imports": 
+            {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js"
+            }
+        }
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Основной скрипт -->
     <!-- <script src="js/script.js"></script> -->
+    <script src="js/main.js" type="module"></script>
 
-    <script src="js/bundle.js"></script>
+    <!-- <script src="js/bundle.js"></script> -->
 </body>
 </html>

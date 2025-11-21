@@ -34,7 +34,9 @@ export class CommentSystem {
 
     displayRecentComments(comments) {
         const container = document.getElementById('recentCommentsList');
-        if (!container) return;
+        if (!container) {
+            return;
+        }
 
         if (!comments || comments.length === 0) {
             container.innerHTML = '<div class="no-comments">Пока нет отзывов. Будьте первым!</div>';
@@ -163,7 +165,9 @@ export class CommentSystem {
 
     initTestimonialForm() {
         const form = document.getElementById('testimonialForm');
-        if (!form) return;
+        if (!form) {
+            return;
+        }
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();

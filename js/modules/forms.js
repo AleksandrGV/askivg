@@ -53,9 +53,9 @@ export class Forms {
                 isValid = false;
             } else {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const phoneRegex = /^[\+]?[1-9][\d]{6,14}$/;
+                const phoneRegex = /^\+?[1-9]\d{6,14}$/;
                     
-                if (!emailRegex.test(value) && !phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+                if (!emailRegex.test(value) && !phoneRegex.test(value.replace(/[\s\-()]/g, ''))) {
                     errorMessage = 'Введите корректный email или номер телефона';
                     isValid = false;
                 }

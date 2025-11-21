@@ -1,16 +1,16 @@
 // Глобальные константы и конфигурация
-const CONFIG = {
+export const CONFIG = {
     isPreloaderActive: true,
     currentFilter: '*'
 };
 
-const mediaQuery = {
+export const mediaQuery = {
     desktop: window.matchMedia('(min-width: 480px)'),
     mobile: window.matchMedia('(max-width: 479px)')
 };
 
 // Данные проектов для модальных окон
-const projectData = {
+export const projectData = {
     1: {
         title: 'Stage Studio',
         category: 'WordPress • Многостраничный корпоративный сайт',
@@ -158,7 +158,7 @@ const projectData = {
 };
 
 //Описание технологий
-const technologiesData = {
+export const technologiesData = {
     html: { 
         title: 'HTML5', 
         text: 'Семантическая разметка по современным стандартам.' 
@@ -199,11 +199,4 @@ const technologiesData = {
         title: 'Sass/SCSS', 
         text: 'Препроцессор CSS для эффективной разработки.' 
     }
-};
-
-module.exports = {
-    CONFIG,
-    mediaQuery,
-    projectData,
-    technologiesData
 };

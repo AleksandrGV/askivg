@@ -1,4 +1,4 @@
-class Animations {
+export class Animations {
     static initAOS() {
         if (typeof AOS !== 'undefined') {
             AOS.init({
@@ -17,5 +17,3 @@ class Animations {
         }
     }
 }
-
-module.exports = { Animations };

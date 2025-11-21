@@ -1,12 +1,13 @@
-const { ResizeHandler } = require('./utils.js');
-const { Animations } = require('./animations.js');
+import { ScrollEffects, ResizeHandler } from './utils.js';
+import { Animations } from './animations.js';
 
-class ScrollManager {
+export class ScrollManager {
     constructor(sliders) {
         this.sliders = sliders;
     }
 
     init() {
+        ScrollEffects.init();
         ResizeHandler.init(() => this.handleResize());
     }
 
@@ -17,5 +18,3 @@ class ScrollManager {
         }
     }
 }
-
-module.exports = { ScrollManager };
