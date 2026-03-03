@@ -1,0 +1,80 @@
+/* ========== ДОБАВИМ СТИЛИ ДЛЯ УВЕДОМЛЕНИЙ ========== */
+/* Уведомления */
+.notification {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification__close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.8rem;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.notification--warning {
+    background: #ed8936 !important;
+}
+
+.notification--info {
+    background: #4299e1 !important;
+}
+
+.rate-limit-info {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-top: 10px;
+    padding: 8px;
+    background: #f7fafc;
+    border-radius: 6px;
+    border-left: 3px solid #4299e1;
+}
+
+.form-timer {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #ed8936;
+}
+
+.disabled-form {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.disabled-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.5);
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

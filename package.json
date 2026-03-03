@@ -1,6 +1,8 @@
 {
-  "name": "askvg-portfolio",
+  "name": "askivg-portfolio",
   "version": "1.0.0",
+  "description": "Портфолио сайт A.S.K.V.G.",
+  "main": "js/main.js",
   "type": "module",
   "scripts": {
     "build": "webpack --mode=production",

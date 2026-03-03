@@ -1,0 +1,143 @@
+/* ========== СОСТОЯНИЯ ========== */
+/* Стили для различных состояний элементов */
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.error {
+    border-color: var(--color-error) !important;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important;
+}
+
+.success {
+    border-color: var(--color-success) !important;
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.1) !important;
+}
+
+/* Стили для индикатора rate limit */
+#rateLimitTimer {
+    display: none;
+    background: linear-gradient(135deg, #fed7d7, #feebc8);
+    color: #c53030;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #feb2b2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+#rateLimitTimer strong {
+    font-weight: 600;
+    color: #9b2c2c;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* Стили для заблокированной формы */
+.form-disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.form-disabled input,
+.form-disabled textarea,
+.form-disabled button {
+    background-color: #f7fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #a0aec0 !important;
+    cursor: not-allowed !important;
+}
+
+.form-message.info {
+    background: #bee3f8;
+    color: #2a4365;
+    border-left: 4px solid #3182ce;
+}
+
+/* Стили для полей с ошибками */
+input.invalid,
+textarea.invalid {
+    border-color: #e53e3e !important;
+    background-color: rgba(229, 62, 62, 0.05) !important;
+}
+
+/* Стили для чекбокса с ошибкой */
+input[type="checkbox"].invalid {
+    outline: 2px solid #e53e3e;
+    outline-offset: 2px;
+}
+
+/* Стили для полей без ошибок */
+input.valid,
+textarea.valid {
+    border-color: #38a169 !important;
+}
+
+/* Анимация для привлечения внимания к ошибкам */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake-error {
+    animation: shake 0.5s ease-in-out;
+}
+
+
+/* Добавьте в ваш CSS файл */
+.contact__form-group--checkbox.error {
+    border: 1px solid #ef4444 !important;
+    border-radius: 6px;
+    padding: 8px;
+    background: #fef2f2;
+    transition: all 0.3s ease;
+}
+
+.contact__form-group--checkbox.error label {
+    color: #7f1d1d !important;
+}
+
+
+/* Эффект для скролла к полю */
+.scroll-highlight {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Сообщение при отключенном JS */
+.captcha-noscript {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 15px 0;
+    color: #92400e;
+}
+
+.captcha-noscript p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Состояние без JS */
+.no-js-warning {
+    display: none;
+}
+
+.no-js .no-js-warning {
+    display: block;
+}
+
+.no-js .js-only {
+    display: none;
+}

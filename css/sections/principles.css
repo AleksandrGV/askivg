@@ -1,0 +1,99 @@
+/* ========== PRINCIPLES SECTION (Наши принципы) ========== */
+.principles {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-gray-50);
+}
+
+.principles__container {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.principles__header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.principles__title {
+    margin-bottom: var(--spacing-md);
+}
+
+.principles__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.principles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.principles__card {
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.principles__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-image: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-orange));
+}
+
+.principles__card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.principles__card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-image: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange));
+    border-radius: 50%;
+    color: var(--color-white);
+    margin: 0 auto var(--spacing-lg);
+    transition: var(--transition-base);
+}
+
+.principles__card:hover .principles__card-icon {
+    transform: scale(1.1);
+}
+
+.principles__card-title {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-900);
+}
+
+.principles__card-text {
+    color: var(--color-gray-600);
+    margin-bottom: 0;
+}
+
+/* Адаптивность секции принципов */
+@media (max-width: 768px) {
+    .principles__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 1044px) and (max-width: 1220px) {
+    .principles__card-title {
+        font-size: 1.5rem;
+    }
+}

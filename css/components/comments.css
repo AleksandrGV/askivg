@@ -1,0 +1,374 @@
+/* ========== СИСТЕМА КОММЕНТАРИЕВ ========== */
+.project-modal__comments {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.comments-form {
+    background: var(--color-gray-50);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 2rem;
+}
+
+.comments-form h4 {
+    margin-bottom: 1rem;
+    color: var(--color-gray-800);
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-gray-700);
+    font-size: 0.9rem;
+}
+
+.comment-input,
+.comment-textarea,
+.comment-rating {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.comment-input:focus,
+.comment-textarea:focus,
+.comment-rating:focus {
+    outline: none;
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.comment-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Список комментариев */
+.comments-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Стили для скроллбара в комментариях */
+.comments-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+    border-radius: 3px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background: var(--color-gray-300);
+    border-radius: 3px;
+}
+
+.comments-list::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-400);
+}
+
+.comment-item {
+    background: var(--color-white);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-gray-200);
+    transition: box-shadow 0.3s ease;
+}
+
+.comment-item:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xs);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.comment-header strong {
+    color: var(--color-gray-900);
+    font-size: var(--font-size-base);
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.comment-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--border-radius-2xl);
+    object-fit: cover;
+}
+
+.comment-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-author-info strong {
+    font-weight: 600;
+    color: var(--color-gray-700);
+}
+
+.comment-date {
+    color: var(--color-gray-500);
+    font-size: var(--font-size-small);
+}
+
+.comment-rating-stars {
+    color: #fbbf24;
+    font-size: var(--font-size-h4);
+}
+
+.comment-text {
+    color: var(--color-gray-700);
+    line-height: var(--line-height-small);
+    margin: 0;
+}
+
+.no-comments {
+    text-align: center;
+    color: var(--color-gray-500);
+    background: var(--color-gray-50);
+    font-style: italic;
+    padding: var(--spacing-lg);
+    border: 1px dashed var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+}
+
+/* Слайдер комментариев */
+.recent-comments {
+    background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--color-gray-200);
+    padding: var(--spacing-xl);
+}
+
+.recent-comments__header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.recent-comments__slider {
+    position: relative;
+    padding: 10px 40px 0;
+    max-width: 100%;
+    margin-bottom: var(--spacing-lg);
+}
+
+.recent-comments__slide {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: var(--spacing-lg);
+    border: 2px solid var(--color-gray-200);
+    box-shadow: var(--shadow-sm);
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.recent-comments__slide:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border: 2px solid transparent;
+    background: linear-gradient(var(--color-white), var(--color-white) 0) padding-box, 
+                linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange)) border-box;
+}
+
+.recent-comment__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.recent-comment__project {
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-gray-700);
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+.recent-comment__author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+}
+
+.recent-comment__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.recent-comment__date {
+    color: var(--color-gray-500);
+    font-size: 0.8rem;
+}
+
+.recent-comment__text {
+    color: var(--color-gray-700);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+    min-height: 60px;
+}
+
+.recent-comment__rating {
+    color: #fbbf24;
+    font-size: 1.9rem;
+    margin-top: auto;
+}
+
+.recent-comments__pagination {
+    position: relative;
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.recent-comments__pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-gray-300), var(--color-gray-300) 0) padding-box, 
+                linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange)) border-box;
+    opacity: 1;
+    margin: 0 6px;
+    transition: var(--transition-base);
+}
+
+.recent-comments__pagination .swiper-pagination-bullet-active {
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange));
+}
+
+.recent-comments__navigation {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.recent-comments__nav {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray-200);
+    color: var(--color-gray-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-base);
+    cursor: pointer;
+}
+
+.recent-comments__nav:hover {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-white), var(--color-white) 0) padding-box, 
+                linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange)) border-box;
+    color: var(--color-dark-blue);
+}
+
+.recent-comments__footer {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-gray-200);
+    color: var(--color-gray-600);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-lg);
+}
+
+/* Состояния загрузки */
+.recent-comments__loading,
+.recent-comments__empty,
+.recent-comments__error {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--color-gray-500);
+    grid-column: 1 / -1;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-gray-300);
+    border-top: 3px solid var(--color-accent-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Адаптивность комментариев */
+@media (max-width: 768px) {
+    .comment-header {
+        flex-direction: column;
+    }
+
+    .comment-rating-stars {
+        align-self: flex-start;
+    }
+    
+    .comments-form {
+        padding: 1rem;
+    }
+    
+    .recent-comments__slider {
+        padding: 0 10px;
+    }
+    
+    .recent-comments__slide {
+        padding: var(--spacing-md);
+    }
+    
+    .recent-comment__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .recent-comment__date {
+        text-align: left;
+    }
+    
+    .recent-comments__navigation {
+        display: none;
+    }
+}

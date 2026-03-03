@@ -55,4 +55,16 @@ credentials.json
 # ========== ПАПКА OSPANEL (ЛОКАЛЬНЫЙ СЕРВЕР) ==========
 .osp/
 
-vendor/
+# ========== ФАЙЛЫ ОКРУЖЕНИЯ И ДАННЫЕ ==============
+/.env
+/.env.example
+/.htaccess
+/logs/
+/data/
+/auxiliary-data/
+
+# ========== СИСТЕМА КОНТРОЛЯ ВЕРСИЙ ==============
+.git/data/leads/
+data/comments/
+data/leads/
+*.json

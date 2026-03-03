@@ -1,14 +1,20 @@
 <?php
 /**
- * Обработка формы обратной связи
+ * Обработчик формы обратной связи для OSPanel
+ * Версия 3.3 - ИСПРАВЛЕННАЯ (капча работает)
  */
 
+// Подключаем autoload
+require_once __DIR__ . '/autoload.php';
+
+// Устанавливаем заголовки
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
+header('Cache-Control: no-cache, must-revalidate');
 
-// Функция для отправки JSON ответа
-function sendResponse($success, $message, $data = []) {
-    http_response_code($success ? 200 : 400);
+// Функция для JSON ответа
+function jsonResponse($success, $message, $data = [], $code = 200) {
+    http_response_code($code);
     echo json_encode([
         'success' => $success,
         'message' => $message,
@@ -17,79 +23,212 @@ function sendResponse($success, $message, $data = []) {
     exit;
 }
 
-// Проверяем метод запроса
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    sendResponse(false, 'Метод не разрешен');
-}
-
-// Получаем данные
-$input = file_get_contents('php://input');
-$data = json_decode($input, true);
-
-// Если не получилось распарсить JSON, пробуем получить из POST
-if (!$data) {
-    $data = $_POST;
-}
-
-// Проверяем обязательные поля
-$required = ['name', 'email', 'project'];
-foreach ($required as $field) {
-    if (empty($data[$field])) {
-        sendResponse(false, "Поле '$field' обязательно для заполнения");
-    }
-}
-
-// Валидация данных
-$name = trim(htmlspecialchars($data['name']));
-$email = trim(htmlspecialchars($data['email']));
-$project = trim(htmlspecialchars($data['project']));
-
-if (strlen($name) < 2) {
-    sendResponse(false, 'Имя должно содержать минимум 2 символа');
-}
-
-if (strlen($project) < 10) {
-    sendResponse(false, 'Описание проекта должно содержать минимум 10 символов');
-}
-
-// Подготовка данных
-$formData = [
-    'id' => uniqid(),
-    'date' => date('Y-m-d H:i:s'),
-    'timestamp' => time(),
-    'name' => $name,
-    'email' => $email,
-    'project' => $project,
-    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
-];
-
-// Сохранение в файл
+// Основная обработка
 try {
-    $dataDir = __DIR__ . '/data';
-    if (!file_exists($dataDir)) {
-        mkdir($dataDir, 0755, true);
+    // Проверяем метод
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        jsonResponse(false, 'Метод не разрешен. Используйте POST.', [], 405);
+    }
+
+    // Получаем данные
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $project = htmlspecialchars(trim($_POST['project'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $privacy = isset($_POST['privacy']) && $_POST['privacy'] == '1';
+    $phone = htmlspecialchars(trim($_POST['phone'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $captchaAnswer = trim($_POST['captcha_answer'] ?? '');
+    $captchaHash = trim($_POST['captcha_hash'] ?? '');
+    $formLoadTime = $_POST['form_load_time'] ?? 0;
+    
+    // Логируем полученные данные (только для отладки)
+    if ($_ENV['DEBUG_MODE'] === 'true') {
+        Logger::log('Form submission attempt', [
+            'name' => $name,
+            'email' => $email,
+            'project_length' => strlen($project),
+            'privacy' => $privacy,
+            'captcha_received' => !empty($captchaAnswer)
+        ]);
     }
     
-    $leadsFile = $dataDir . '/leads.json';
-    $leads = [];
+    // ВАЛИДАЦИЯ
+    $errors = [];
     
-    if (file_exists($leadsFile)) {
-        $existingData = file_get_contents($leadsFile);
-        if ($existingData) {
-            $leads = json_decode($existingData, true) ?: [];
+    // 1. Имя (2-100 символов)
+    if (empty($name)) {
+        $errors[] = 'Пожалуйста, введите ваше имя';
+    } elseif (strlen($name) < 2) {
+        $errors[] = 'Имя должно содержать минимум 2 символа';
+    } elseif (strlen($name) > 100) {
+        $errors[] = 'Имя не должно превышать 100 символов';
+    }
+    
+    // 2. Email
+    if (empty($email)) {
+        $errors[] = 'Пожалуйста, введите email';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Введите корректный email адрес';
+    } elseif (strlen($email) > 150) {
+        $errors[] = 'Email слишком длинный';
+    }
+    
+    // 3. Проект (10-2000 символов)
+    if (empty($project)) {
+        $errors[] = 'Пожалуйста, опишите ваш проект';
+    } elseif (strlen($project) < 10) {
+        $errors[] = 'Описание проекта должно содержать минимум 10 символов';
+    } elseif (strlen($project) > 2000) {
+        $errors[] = 'Описание проекта не должно превышать 2000 символов';
+    }
+    
+    // 4. Телефон (необязательно, но если есть - проверяем)
+    if (!empty($phone) && !preg_match('/^[\d\s\-\+\(\)]{7,20}$/', $phone)) {
+        $errors[] = 'Введите корректный номер телефона';
+    }
+
+    // 5. Согласие с политикой
+    if (!$privacy) {
+        $errors[] = 'Необходимо согласие с политикой конфиденциальности';
+    }
+    
+    // 6. ПРОВЕРКА КАПЧИ - ВАЖНО: РАСКОММЕНТИРОВАНО!
+    if (empty($captchaAnswer)) {
+        $errors[] = 'Пожалуйста, решите математическую задачу';
+    } else {
+        $expectedHash = md5($captchaAnswer);
+        if ($captchaHash !== $expectedHash) {
+            $errors[] = 'Неверный ответ на математическую задачу';
+            
+            // Логируем ошибку капчи для отладки
+            if ($_ENV['DEBUG_MODE'] === 'true') {
+                Logger::log('CAPTCHA mismatch', [
+                    'received' => $captchaHash,
+                    'expected' => $expectedHash,
+                    'answer' => $captchaAnswer
+                ]);
+            }
         }
     }
     
-    $leads[] = $formData;
-    file_put_contents($leadsFile, json_encode($leads, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    // 7. Проверка времени заполнения (антибот)
+    $currentTime = time();
+    if ($currentTime - $formLoadTime < 3) {
+        // Слишком быстро - возможно бот
+        Logger::log('Too fast submission', [
+            'time' => $currentTime - $formLoadTime,
+            'ip' => $_SERVER['REMOTE_ADDR']
+        ]);
+        // Не блокируем полностью, но логируем
+    }
+    
+    // Если есть ошибки валидации
+    if (!empty($errors)) {
+        jsonResponse(false, implode(' ', $errors), ['errors' => $errors], 400);
+    }
+    
+    // ПОДКЛЮЧЕНИЕ К БД И СОХРАНЕНИЕ
+    $pdo = Database::getConnection();
+    
+    // УЛУЧШЕННАЯ ПРОВЕРКА RATE LIMITING
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $ipHash = md5($ip);
+    $now = time();
+    
+    // Конфигурация rate limiting
+    $maxRequestsPerHour = 5;
+    $rateLimitTime = 3600; // 1 час в секундах
+    
+    // Удаляем старые записи (> 1 час)
+    $stmt = $pdo->prepare("DELETE FROM rate_limits WHERE timestamp < ?");
+    $stmt->execute([$now - $rateLimitTime]);
+    
+    // Проверяем количество запросов за последний час
+    $stmt = $pdo->prepare("SELECT COUNT(*) as count, MIN(timestamp) as first_request FROM rate_limits WHERE ip_hash = ?");
+    $stmt->execute([$ipHash]);
+    $rateData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $requestCount = $rateData['count'] ?? 0;
+    
+    // Проверяем, превышен ли лимит
+    if ($requestCount >= $maxRequestsPerHour) {
+        // Вычисляем, когда можно будет отправлять снова
+        $firstRequestTime = $rateData['first_request'] ?? $now;
+        $retryAfter = $rateLimitTime - ($now - $firstRequestTime);
+        
+        // Убедимся, что retryAfter не отрицательный
+        $retryAfter = max(60, $retryAfter); // Минимум 1 минута
+        
+        // Логируем блокировку
+        Logger::log('Rate limit exceeded', [
+            'ip' => $ip,
+            'attempts' => $requestCount,
+            'retry_after' => $retryAfter,
+            'first_request_time' => date('Y-m-d H:i:s', $firstRequestTime)
+        ]);
+        
+        // Отправляем ответ с заголовком Retry-After и информацией в JSON
+        header('Retry-After: ' . $retryAfter);
+        jsonResponse(false, 
+            'Превышен лимит запросов. Пожалуйста, попробуйте позже.', 
+            ['retry_after' => $retryAfter], 
+            429
+        );
+    }
+    
+    // Добавляем текущий запрос
+    $stmt = $pdo->prepare("INSERT INTO rate_limits (ip_hash, ip_address, timestamp) VALUES (?, ?, ?)");
+    $stmt->execute([$ipHash, $ip, $now]);
+    
+    // Сохраняем заявку
+    $stmt = $pdo->prepare("
+        INSERT INTO leads 
+        (name, email, phone, project_description, ip_address, user_agent) 
+        VALUES (?, ?, ?, ?, ?, ?)
+    ");
+    
+    $stmt->execute([
+        $name,
+        $email,
+        $phone,
+        $project,
+        $ip,
+        $_SERVER['HTTP_USER_AGENT'] ?? 'unknown'
+    ]);
+    
+    $leadId = $pdo->lastInsertId();
+    
+    // Генерируем новую капчу для следующей отправки
+    $num1 = rand(1, 10);
+    $num2 = rand(1, 10);
+    $answer = $num1 + $num2;
+    $newCaptchaHash = md5((string)$answer);
+    
+    // Логируем успешную отправку
+    Logger::log('Form submitted successfully', [
+        'lead_id' => $leadId,
+        'email' => $email,
+        'ip' => $ip
+    ]);
+    
+    // УСПЕШНЫЙ ОТВЕТ
+    jsonResponse(true, 
+        "✅ Спасибо! Ваша заявка #$leadId отправлена. Мы свяжемся с вами в ближайшее время.", 
+        [
+            'lead_id' => $leadId,
+            'captcha' => [
+                'question' => "Сколько будет $num1 + $num2?",
+                'hash' => $newCaptchaHash
+            ]
+        ]
+    );
+    
+} catch (PDOException $e) {
+    // Ошибка базы данных
+    Logger::logError('Database error in send_form.php', ['error' => $e->getMessage()]);
+    jsonResponse(false, 'Ошибка сохранения заявки. Пожалуйста, попробуйте позже.', [], 500);
     
 } catch (Exception $e) {
-    // Логируем ошибку, но продолжаем
-    error_log("Ошибка сохранения заявки: " . $e->getMessage());
+    // Любая другая ошибка
+    Logger::logError('General error in send_form.php', ['error' => $e->getMessage()]);
+    jsonResponse(false, 'Произошла ошибка: ' . $e->getMessage(), [], 500);
 }
-
-// УСПЕШНЫЙ ОТВЕТ (без попытки отправки email)
-sendResponse(true, '✔️ Спасибо! Ваша заявка получена. Мы свяжемся с вами в ближайшее время.', [
-    'lead_id' => $formData['id']
-]);
 ?>

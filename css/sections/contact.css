@@ -1,0 +1,274 @@
+/* ========== CONTACT SECTION (Форма обратной связи) ========== */
+.contact {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-white);
+}
+
+.contact__container {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.contact__header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.contact__title {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact__form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact__form-label {
+    display: block;
+    font-weight: 500;
+    color: var(--color-gray-700);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact__form-input,
+.contact__form-textarea {
+    width: 100%;
+    padding: var(--spacing-xs);
+    border: 2px solid var(--color-gray-200);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    transition: var(--transition-base);
+    background-color: var(--color-white);
+}
+
+.contact__form-input:focus,
+.contact__form-textarea:focus {
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.contact__form-input.valid {
+    border-color: var(--color-success);
+}
+
+.contact__form-input.invalid {
+    border-color: var(--color-error);
+}
+
+.contact__form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact__form-error {
+    font-size: 12px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: none;
+    background: #fee2e2;
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin-top: 8px;
+    border-left: 3px solid var(--color-error);
+    color: var(--color-error);
+}
+
+.contact__form-group--checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+/* Стилизация checkbox */
+.contact__form-checkbox + .contact__form-checkbox-label {
+    position: relative;
+    padding-left: var(--spacing-xl);
+    cursor: pointer;
+}
+
+/* Создаем сам квадрат через ::before */
+.contact__form-checkbox + .contact__form-checkbox-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px; /* Размер квадрата */
+    height: 24px; /* Размер квадрата */
+    border: 2px solid var(--color-gray-300);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-white);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Стиль при наведении */
+.contact__form-checkbox + .contact__form-checkbox-label:hover::before {
+    border-color: var(--color-accent-blue);
+}
+
+/* Стиль для отмеченного состояния */
+.contact__form-checkbox:checked + .contact__form-checkbox-label::before {
+    background: var(--color-dark-blue);
+
+}
+
+/* Галочка (можно использовать SVG или псевдоэлемент) */
+.contact__form-checkbox:checked + .contact__form-checkbox-label::after {
+    content: '✓'; /* Символ галочки */
+    position: absolute;
+    left: 4px;
+    top: 20%;
+    font-size: var(--font-size-h2);
+    color: var(--color-gray-400); /* Цвет галочки */
+    transition: var(--transition-base);
+    transform: translateY(-50%) rotate(10deg);
+}
+
+.contact__form-checkbox-label {
+    font-size: var(--font-size-small);
+    color: var(--color-gray-600);
+    line-height: var(--line-height-small);
+}
+
+.contact__form-link {
+    color: var(--color-accent-blue);
+    text-decoration: underline;
+}
+
+.contact__form-submit {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact__form-submit-text {
+    transition: var(--transition-base);
+}
+
+.contact__form-submit-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--color-white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: spin 1s linear infinite;
+}
+
+.contact__form-submit.loading .contact__form-submit-text {
+    opacity: 0;
+}
+
+.contact__form-submit.loading .contact__form-submit-loader {
+    opacity: 1;
+}
+
+/* Информационная карточка */
+.contact__info-card {
+    background-color: var(--color-gray-50);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+}
+
+.contact__info-title {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-gray-900);
+}
+
+.contact__info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact__info-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-blue);
+    margin-top: 2px;
+}
+
+.contact__info-text strong {
+    color: var(--color-gray-900);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact__info-text a {
+    color: var(--color-accent-blue);
+}
+
+/* Социальные сети */
+.contact__social {
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.contact__social-title {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-900);
+    font-size: 1rem;
+}
+
+.contact__social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.contact__social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gray-200);
+    background-color: var(--color-white);
+    color: var(--color-gray-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact__social-link:hover {
+    background-image: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange));
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Адаптивность контактной формы */
+@media (max-width: 901px) {
+    .contact__form-checkbox:checked + .contact__form-checkbox-label::after {
+     top: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+}

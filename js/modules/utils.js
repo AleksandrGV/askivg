@@ -1,106 +1,9 @@
-export class Notification {
-    show(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `notification notification--${type}`;
-        notification.innerHTML = `
-            <span>${message}</span>
-            <button class="notification__close">&times;</button>
-        `;
-        
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${type === 'error' ? '#f56565' : '#48bb78'};
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            max-width: 400px;
-            animation: slideIn 0.3s ease;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 5000);
-        
-        notification.querySelector('.notification__close').addEventListener('click', () => {
-            notification.remove();
-        });
-    }
-}
+// /**
+//  * ========== UTILITY FUNCTIONS ==========
+//  * Вспомогательные функции для сайта A.S.K.I.V.G.
+//  */
 
-export class SmoothScroll {
-    static init() {
-        const navLinks = document.querySelectorAll('a[href^="#"]');
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                const target = document.querySelector(href);
-                
-                if (target && href !== '#') {
-                    e.preventDefault();
-                    
-                    const headerHeight = document.querySelector('.nav')?.offsetHeight || 80;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    }
-}
-
-export class ScrollEffects {
-    static init() {
-        let ticking = false;
-        
-        function updateScrollEffects() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.hero__decoration');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-            
-            ticking = false;
-        }
-        
-        function requestScrollUpdate() {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', requestScrollUpdate);
-    }
-}
-export class ResizeHandler {
-    static init(callback) {
-        let resizeTimeout;
-        
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                callback();
-            }, 250);
-        });
-    }
-}
-
+// Throttle функция для оптимизации событий
 export function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -114,31 +17,102 @@ export function throttle(func, limit) {
     };
 }
 
-export function debounce(func, wait, immediate) {
-    let timeout;
-    return function() {
-        const context = this, args = arguments;
-        const later = function() {
-            timeout = null;
-            if (!immediate) {
-                func.apply(context, args);
-            }
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) {
-            func.apply(context, args);
+/**
+ * Простая реализация MD5 для фоллбэка
+ */
+export function simpleMD5(str) {
+    let hash = 0;
+    if (str.length === 0) return '00000000000000000000000000000000';
+    for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return Math.abs(hash).toString(16).padStart(32, '0');
+}
+
+/**
+ * Парсит дату из разных форматов
+ */
+export function parseDate(dateString) {
+    if (!dateString) return new Date();
+    let date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+        const match = dateString.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
+        if (match) date = new Date(`${match[3]}-${match[2]}-${match[1]}T${match[4]}:${match[5]}:00`);
+    }
+    return isNaN(date.getTime()) ? new Date() : date;
+}
+
+/**
+ * Показывает уведомление пользователю
+ * @param {string} message - Текст сообщения
+ * @param {string} type - Тип (success, error, warning, info)
+ */
+export function showNotification(message, type = 'info') {
+    // Создаем элемент уведомления
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Стили для уведомления
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        background: ${type === 'success' ? '#4caf50' : type === 'error' ? '#f44336' : '#2196f3'};
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 9999;
+        animation: slideIn 0.3s ease;
+        max-width: 350px;
+    `;
+    
+    // Добавляем анимацию
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(notification);
+    
+    // Удаляем через 5 секунд
+    setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 5000);
+}
+
+/**
+ * Дебаунс функция
+ */
+export function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
 
-export function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+// Единый экспорт по умолчанию
+export default {
+    simpleMD5,
+    parseDate,
+    showNotification,
+    debounce,
+    throttle
+};

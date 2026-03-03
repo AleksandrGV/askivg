@@ -1,0 +1,161 @@
+/* ========== PROCESS SECTION (Этапы работы) ========== */
+.process {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-white);
+}
+
+.process__container {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.process__header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.process__title {
+    margin-bottom: var(--spacing-md);
+}
+
+.process__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.process__timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.process__timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-image: linear-gradient(180deg, var(--color-accent-blue), var(--color-accent-orange));
+    transform: translateX(-50%);
+    opacity: 0.2;
+}
+
+.process__step {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-3xl);
+    position: relative;
+}
+
+.process__step:nth-child(odd) {
+    flex-direction: row;
+}
+
+.process__step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.process__step-number-border {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(var(--color-white-opacity-90), var(--color-white-opacity-80)) padding-box, 
+                linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange));
+}
+
+.process__step-number {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-image: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.process__step-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-gray-50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent-blue);
+    margin: 0 var(--spacing-xl);
+}
+
+.process__step-content {
+    flex: 1;
+    max-width: 300px;
+    z-index: 5;
+}
+
+.process__step:nth-child(even) .process__step-content {
+    text-align: right;
+}
+
+.process__step-title {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gray-900);
+}
+
+.process__step-description {
+    color: var(--color-gray-600);
+    margin-bottom: 0;
+}
+
+/* Адаптивность таймлайна */
+@media (max-width: 768px) {
+    .process__timeline::before {
+        left: 30px;
+    }
+    
+    .process__step {
+        flex-direction: column !important;
+        padding-top: var(--spacing-xs);
+        padding-left: var(--spacing-2xl);
+    }
+
+    .process__step-number-border {
+        left: 30px;
+        width: 42px;
+        height: 42px;
+    }
+    
+    .process__step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .process__step-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 var(--spacing-md) var(--spacing-sm) 0;
+    }
+    
+    .process__step-content {
+        text-align: left !important;
+        max-width: none;
+    }
+}

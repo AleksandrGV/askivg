@@ -1,0 +1,129 @@
+/* ========== CAPTCHA STYLES ========== */
+/* Стили для системы защиты от спама */
+.contact__form-group--captcha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content min-content;
+    row-gap: 5px;
+}
+
+.contact__form-group--captcha label {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.contact__form-group--captcha .captcha-container {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    max-width: fit-content;
+}
+
+.contact__form-group--captcha .captcha-question {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: left;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact__form-group--captcha .contact__form-input {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+.contact__form-group--captcha .btn--small {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    margin-top: auto;
+    margin-left: var(--spacing-xs);
+}
+
+.contact__form-group--captcha .captcha-hint {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+.captcha-container {
+    margin-bottom: 5px;
+}
+
+.captcha-question {
+    background: var(--color-gray-100);
+    display: block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    color: var(--color-gray-800);
+    min-width: 150px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.captcha-answer {
+    max-width: 156px;
+    text-align: center;
+}
+
+.captcha-hint {
+    color: var(--color-gray-500);
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Адаптивность капчи */
+@media (max-width: 830px) {
+    .contact__form-group--captcha {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content min-content;
+        row-gap: 5px;
+    }
+
+    .contact__form-group--captcha .captcha-container {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .contact__form-group--captcha .captcha-question {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .contact__form-group--captcha .captcha-answer {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+
+    .contact__form-group--captcha .btn--primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .captcha-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .captcha-answer {
+        width: 100% !important;
+    }
+}

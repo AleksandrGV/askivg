@@ -1,0 +1,91 @@
+/* ========== PRELOADER (Загрузочный экран) ========== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, var(--color-dark-blue), var(--color-charcoal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-index-modal);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Прелоадер виден только когда есть класс js и он не hidden */
+.js-enabled .preloader {
+    display: flex;
+}
+
+.js-enabled .preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Если JS отключен - прелоадер скрыт */
+.no-js .preloader {
+    display: none !important;
+}
+
+.no-js body {
+    overflow: auto !important;
+}
+
+.preloader__content {
+    text-align: center;
+    color: var(--color-white);
+}
+
+.preloader__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.preloader__letter {
+    font-family: var(--font-secondary);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-white);
+    opacity: 0;
+    animation: letterAppear 0.5s ease forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.preloader__progress {
+    width: 340px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.preloader__progress-line {
+    height: 100%;
+    background-image: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-orange));
+    width: 0%;
+    transition: width 0.08s ease;
+}
+
+/* Адаптивность прелоадера */
+@media (max-width: 450px) {
+    .preloader__letter {
+        font-size: var(--font-size-h1);
+    }
+
+    .preloader__progress {
+        width: 220px;
+    }
+}

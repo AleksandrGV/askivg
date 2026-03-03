@@ -1,0 +1,107 @@
+/* ========== RESET И БАЗОВЫЕ СТИЛИ ========== */
+/* Сброс стилей для кроссбраузерной совместимости */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-gray-800);
+    background-color: var(--color-white);
+    overflow-x: hidden;
+}
+
+/* Убираем стандартные стили для списков */
+ul, ol {
+    list-style: none;
+}
+
+/* Убираем стандартное подчеркивание у ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+/* Стили для изображений */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Стили для кнопок */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: var(--transition-base);
+}
+
+/* Стили для полей ввода */
+input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    outline: none;
+}
+
+/* Стилизация скроллбара */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg, var(--color-accent-blue), var(--color-accent-orange));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(180deg, var(--color-accent-orange), var(--color-accent-blue));
+}
+
+/* Стили для печати */
+@media print {
+    .preloader,
+    .nav,
+    .hero__decoration,
+    .contact__form,
+    .footer__social,
+    .modal {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black;
+        background-color: white;
+    }
+    
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+        color: black;
+    }
+    
+    .principles__card,
+    .testimonials__card {
+        page-break-inside: avoid;
+    }
+}

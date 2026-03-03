@@ -1,0 +1,31 @@
+<svg viewBox="0 0 400 120" xmlns="http://www.w3.org">
+  <!-- Стили для шрифта -->
+  <style>
+    .main-text {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      fill: #333;
+    }
+  </style>
+   
+  <!-- Верхний ряд: A.S.K.I.V.G. -->
+  <text 
+    x="0" 
+    y="45" 
+    class="main-text" 
+    font-size="50" 
+    font-family="Montserrat"
+    textLength="400" 
+    lengthAdjust="spacing">A.S.K.I.V.G.</text>
+
+  <!-- Нижний ряд: WEB STUDIO -->
+  <!-- Мы используем ту же ширину textLength, что и выше -->
+  <text 
+    x="0" 
+    y="100" 
+    class="main-text" 
+    font-size="45" 
+    font-style="italic"
+    textLength="400" 
+    lengthAdjust="spacing">Web Studio</text>
+</svg>

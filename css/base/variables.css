@@ -1,0 +1,107 @@
+/* ========== CSS CUSTOM PROPERTIES (ПЕРЕМЕННЫЕ) ========== */
+/* Основные переменные для цветов, типографики, отступов и т.д. */
+:root {
+    /* Цветовая палитра */
+    --color-dark-blue: #1a202c;
+    --color-charcoal: #2d3748;
+    --color-accent-blue: #3182ce;
+    --color-accent-orange: #f56500;
+    --color-white: #ffffff;
+    --color-gray-50: #f7fafc;
+    --color-gray-100: #edf2f7;
+    --color-gray-200: #e2e8f0;
+    --color-gray-300: #cbd5e0;
+    --color-gray-400: #a0aec0;
+    --color-gray-500: #718096;
+    --color-gray-600: #4a5568;
+    --color-gray-700: #2d3748;
+    --color-gray-800: #1a202c;
+    --color-gray-900: #171923;
+    
+    /* Дополнительные цвета */
+    --color-white-opacity-95: rgba(255, 255, 255, 0.95);
+    --color-white-opacity-90: rgba(255, 255, 255, 0.9);
+    --color-white-opacity-80: rgba(255, 255, 255, 0.8);
+    --color-success: #38a169;
+    --color-warning: #d69e2e;
+    --color-error: #e53e3e;
+    --color-black-opacity-80: rgba(0, 0, 0, 0.8);
+    
+    /* Типографика */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+    
+    /* Модульная шкала размеров шрифтов */
+    --font-size-small: 0.875rem;      /* 14px */
+    --font-size-base: 1rem;           /* 16px */
+    --font-size-h5: 1.2rem;           /* 19px */
+    --font-size-h4: 1.5rem;           /* 24px */
+    --font-size-h3: 2rem;             /* 32px */
+    --font-size-h2: 2.5rem;           /* 40px */
+    --font-size-h1: 3.5rem;           /* 56px */
+    
+    /* Высота строк */
+    --line-height-base: 1.6;
+    --line-height-heading: 1.2;
+    --line-height-small: 1.4;
+    
+
+    /* Отступы (8px система) */
+    --spacing-xs: 0.5rem;    /* 8px */
+    --spacing-sm: 1rem;      /* 16px */
+    --spacing-md: 1.5rem;    /* 24px */
+    --spacing-lg: 2rem;      /* 32px */
+    --spacing-xl: 3rem;      /* 48px */
+    --spacing-2xl: 4rem;     /* 64px */
+    --spacing-3xl: 6rem;     /* 96px */
+    
+    /* Радиусы скругления */
+    --border-radius-sm: 0.375rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 0.75rem;
+    --border-radius-xl: 1rem;
+    --border-radius-2xl: 1.5rem;
+    
+    /* Тени */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Переходы */
+    --transition-base: all 0.3s ease;
+    --transition-fast: all 0.15s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Максимальная ширина контейнера */
+    --max-width-container: 1280px;
+    
+    /* Z-index */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal-backdrop: 1040;
+    --z-index-modal: 1050;
+    --z-index-tooltip: 1070;
+
+    /* Размер сферы */
+    --sphere-size: 400px;
+}
+
+/* Адаптивные переменные для мобильных устройств */
+@media (max-width: 768px) {
+    :root {
+        --font-size-h1: 2.5rem;  /* 40px на мобильных */
+        --font-size-h2: 2rem;    /* 32px на мобильных */
+        --font-size-h3: 1.5rem;  /* 24px на мобильных */
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+        --spacing-3xl: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --sphere-size: 300px;
+    }
+}

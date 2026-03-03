@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 150" xmlns="http://www.w3.org">
+  <style>
+    .main-text {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+      fill: #333;
+    }
+    .decor {
+      fill: #555;
+      stroke: #555;
+      stroke-width: 2;
+    }
+  </style>
+   
+  <!-- Верхний декор: Тонкая линия с точкой -->
+  <line x1="0" y1="10" x2="360" y2="10" class="decor" />
+  <circle cx="390" cy="10" r="4" class="decor" />
+
+  <!-- Основной текст: A.S.K.I.V.G. -->
+  <text 
+    x="0" 
+    y="60" 
+    class="main-text" 
+    font-size="50" 
+    textLength="400" 
+    lengthAdjust="spacing">A.S.K.I.V.G.</text>
+
+  <!-- Нижний текст: Web Studio -->
+  <text 
+    x="0" 
+    y="115" 
+    class="main-text" 
+    font-size="45" 
+    font-style="italic"
+    textLength="400" 
+    lengthAdjust="spacing">Web Studio</text>
+
+  <!-- Нижний декор: Двойная акцентная линия -->
+  <line x1="40" y1="135" x2="400" y2="135" class="decor" />
+  <line x1="150" y1="145" x2="400" y2="145" class="decor" stroke-opacity="0.5" />
+</svg>

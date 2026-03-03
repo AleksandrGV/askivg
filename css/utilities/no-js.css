@@ -1,0 +1,117 @@
+/* ========== NO-JS FALLBACK STYLES ========== */
+/* Эти стили применяются только когда JS отключен */
+
+/* 1. Показываем все скрытые элементы */
+.no-js [class*="hidden"],
+.no-js [class*="fade"],
+.no-js [class*="slide"],
+.no-js [data-aos] {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+/* 2. Убираем горизонтальный скролл */
+.no-js body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    position: static;
+}
+
+.no-js html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* 3. Сброс для всех контейнеров */
+.no-js .container,
+.no-js .container-fluid,
+.no-js [class*="container"] {
+    overflow: visible;
+    position: static;
+}
+
+/* 4. Сброс для элементов с transform */
+.no-js [style*="transform"] {
+    transform: none;
+}
+
+/* 5. Сброс для позиционирования */
+.no-js [style*="position"] {
+    position: static;
+}
+
+/* 6. Специфичные сбросы для ваших секций */
+.no-js .process__step {
+    opacity: 1;
+    transform: none;
+}
+
+.no-js .principles__card {
+    opacity: 1;
+    transform: none;
+}
+
+.no-js .technologies__sphere-container {
+    display: none; /* Скрываем 3D сферу */
+}
+
+.no-js .technologies__static-content {
+    display: block !important; /* Показываем статический контент */
+}
+
+.no-js .swiper-wrapper {
+    transform: none;
+    display: block;
+}
+
+/* Сообщение при отключенном JS */
+.warning {
+    display: none;
+    gap: var(--spacing-sm);
+    max-width: 320px;
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+    background-color: rgb(from var(--color-warning) r g b / 24%);
+    padding: 15px;
+    text-align: center;
+    z-index: 9999;
+    border: 2px solid rgb(from var(--color-warning) r g b / 80%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: slideDown 1.5s ease-out;
+}
+
+.no-js .warning {
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+/* Скрываем при включенном JS (класс js-enabled добавит JS) */
+.js-enabled .warning {
+    display: none !important;
+}
+
+/* Анимация появления */
+@keyframes slideDown {
+    from {
+        transform: translateY(-140%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.warning p {
+    margin: 0;
+}
+
+.no-js [data-aos] {
+    pointer-events: auto !important;
+}

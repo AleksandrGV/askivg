@@ -1,0 +1,45 @@
+/* ============ СТИЛИ ДЛЯ ЗВЕЗД РЕЙТИНГА =============== */
+.rating-stars {
+    display: flex;
+    gap: 4px;
+    margin: 8px 0;
+}
+
+.star {
+    font-size: 28px;
+    cursor: pointer;
+    color: #d1d5db;
+    transition: all 0.2s ease;
+    user-select: none;
+    transform: scale(1);
+}
+
+.star:hover {
+    transform: scale(1.1);
+    color: #fbbf24;
+}
+
+.star.active {
+    color: #f59e0b;
+    transform: scale(1.05);
+}
+
+.star.active:hover {
+    transform: scale(1.15);
+}
+
+.rating-stars:hover .star {
+    color: #fbbf24;
+}
+
+.rating-stars .star:hover ~ .star {
+    color: #d1d5db;
+    transform: scale(1);
+}
+
+.rating-hint {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 4px;
+    text-align: center;
+}

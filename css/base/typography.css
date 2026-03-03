@@ -1,0 +1,36 @@
+/* ========== ТИПОГРАФИКА ========== */
+/* Базовые стили для текстовых элементов */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-900);
+}
+
+.h1, h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+}
+
+.h2, h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+}
+
+.h3, h3 {
+    font-size: var(--font-size-h3);
+    font-weight: 500;
+}
+
+.h4, h4 {
+    font-size: var(--font-size-h4);
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray-600);
+}
