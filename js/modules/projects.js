@@ -9,7 +9,8 @@ import { PROJECT_DATA } from './project-data.js';
 import { loadComments } from './comments.js';
 import { initCommentForm } from './comments.js';
 import { initCaptcha, refreshCaptcha } from './captcha.js';
-import { initRatingStars, resetRatingStars } from './rating.js';
+// import { initRatingStars, resetRatingStars } from './rating.js';
+import { initRatingStars } from './rating.js';
 
 /**
  * Открывает модальное окно проекта
@@ -18,7 +19,9 @@ export async function openProjectModal(projectId) {
     const modal = document.getElementById('projectModal');
     const modalBody = document.getElementById('modalBody');
     
-    if (!modal || !modalBody || !PROJECT_DATA[projectId]) return;
+    if (!modal || !modalBody || !PROJECT_DATA[projectId]) {
+        return;
+    }
     
     const project = PROJECT_DATA[projectId];
     const comments = await loadComments(projectId);
@@ -43,7 +46,9 @@ export async function openProjectModal(projectId) {
  */
 export function closeProjectModal() {
     const modal = document.getElementById('projectModal');
-    if (!modal) return;
+    if (!modal) {
+        return;
+    }
     
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
@@ -220,23 +225,25 @@ function generateCommentsHTML(comments) {
  */
 function initProjectModalSlider() {
     const modalSlider = document.querySelector('.project-modal__slider');
-    if (!modalSlider || typeof Swiper === 'undefined') return;
+    if (!modalSlider || typeof Swiper === 'undefined') {
+        return;
+    }
     
     new Swiper(modalSlider, {
         slidesPerView: 1,
         spaceBetween: 20,
         navigation: {
             nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            prevEl: '.swiper-button-prev'
         },
         pagination: {
             el: '.swiper-pagination',
-            clickable: true,
+            clickable: true
         },
         loop: true,
         autoplay: {
             delay: 4000,
-            disableOnInteraction: false,
+            disableOnInteraction: false
         }
     });
 }

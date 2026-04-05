@@ -1,6 +1,20 @@
 // Данные проектов для модальных окон
 export const PROJECT_DATA = {
     1: {
+        title: 'Приглашение на свадьбу Матвея и Ирины',
+        category: 'HTML/CSS/JS • Одностраничный сайт',
+        description: 'Стильный сайт пригласительное на свадьбу с таймером обратного отстчета, выбором напитков, салатов и горячих блюд.',
+        technologies: ['HTML5', 'CSS3', 'JavaScript', 'БЭМ'],
+        duration: '10 дней',
+        images: [
+            'img/wedding-mi.jpg',
+            'img/wedding-mi-1.jpg',
+            'img/wedding-mi-2.jpg',
+            'img/wedding-mi-3.jpg'
+        ],
+        liveUrl: 'https://aleksandrgv.github.io/wedding-mi/'
+    },
+    2: {
         title: 'Мобильная съемка',
         category: 'HTML/CSS/JS • Одностраничный сайт',
         description: 'Онлайн-курс по мобильной видеосъемке поможет превратить ваши идеи в профессиональные видео, которые привлекут внимание зрителей. Начните обучение прямо сейчас!.',
@@ -13,7 +27,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://mobileshooting.ru/'
     },
-    2: {
+    3: {
         title: 'Stage Studio',
         category: 'WordPress • Многостраничный корпоративный сайт',
         description: 'Создали уютный и функциональный сайт для студии танцев и видеографов с онлайн-заказом, системой лояльности и интеграцией с соцсетями.',
@@ -26,7 +40,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://stagestudio.ru/'
     },
-    3: {
+    4: {
         title: 'Кексобукинг',
         category: 'HTML/CSS/JS • Одностраничный сайт',
         description: 'Современный сайт по подбору и размещению объявлений, по аренде жилья.',
@@ -39,7 +53,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://aleksandrgv.github.io/356085-keksobooking-21/'
     },
-    4: {
+    5: {
         title: 'Мобильное приложение, которое раскрасит ваши серые будни розовыми красками',
         category: 'HTML/CSS/JS • Многостраничный сайд',
         description: 'Стильный многостраничный сайт о мобильном приложении, которое раскрасит ваши серые будни розовыми красками.',
@@ -53,7 +67,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://aleksandrgv.github.io/356085-pink-20/build/index.html'
     },
-    5: {
+    6: {
         title: 'Стильное приглашение на свадьбу',
         category: 'Tilda • Одностраничный сайт',
         description: 'Стильный сайт пригласительное на свадьбу с таймером обратного отстчета и выбором напитков.',
@@ -66,7 +80,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://project7847501.tilda.ws/'
     },
-    6: {
+    7: {
         title: 'Интернет-магазин строительных материалов и инструментов для ремонта.',
         category: 'HTML/CSS/JS • Многостраничный сайт.',
         description: 'Интернет-магазин строительных материалов и инструментов для ремонта.',
@@ -79,7 +93,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'proekty/technomart/index.html'
     },
-    7: {
+    8: {
         title: 'Интернет магазин электронных гаджетов и акссесуаров.',
         category: 'HTML/CSS • Одностраничный сайт.',
         description: 'Магазин электронных гаджетов и акссесуаров, сайт с фиксированой версткой.',
@@ -92,7 +106,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://aleksandrgv.github.io/356085-device-28/'
     },
-    8: {
+    9: {
         title: 'Услуги грузового транспорта',
         category: 'HTML/CSS/JS/Bootstrap/JQuery • Многостраничный сайт',
         description: 'Корпоративный сайт по предоставлению услуг по грузоперевозкам, а также предоставлению грузвого транспорта в аренду.',
@@ -105,7 +119,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'proekty/tractorbuilding/index.html'
     },
-    9: {
+    10: {
         title: 'Союз гаражных кооперативов',
         category: 'HTML/CSS/JS/Bootstrap/JQuery • Многостраничный сайт.',
         description: 'Корпоративный многостраничный сайт Союз гаражных кооперативов..',
@@ -119,7 +133,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'proekty/gsk/index.html'
     },
-    10: {
+    11: {
         title: 'My Corporate Website"',
         category: 'HTML/CSS • Корпоративный сайт',
         description: 'Простой корпоративный сайт с фиксированный версткой.',
@@ -131,7 +145,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'proekty/home/index.html'
     },
-    11: {
+    12: {
         title: 'The Bike Shop"',
         category: 'HTML/CSS/JS/Bootstrap/JQuery • Многостраничный сайт',
         description: 'Корпоративный сайт и интернет магазин по продаже велосипедов ручной работы.',
@@ -144,7 +158,7 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'proekty/bikeshop/index.html'
     },
-    12: {
+    13: {
         title: 'Банк "ЮниКредитБанк"',
         category: 'HTML/CSS/JS • Корпоративный сайт',
         description: 'Корпоративный сайт финансовой организации, банк "ЮниКредитБанк", фиксированная верстка.',
@@ -161,5 +175,5 @@ export const PROJECT_DATA = {
 
 // Экспорт
 export default {
-    PROJECT_DATA,
+    PROJECT_DATA
 };
