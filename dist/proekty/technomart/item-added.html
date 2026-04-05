@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="page page-item-added" lang="ru">
+
+<head>
+  <title>HTML Academy: Техномарт</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Интернет магазин строительных материалов и инструментов для ремонта." />
+  <meta name="keywords" content="строительные материалы, инструмент, ремонт, строительство, техника" />
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="wrapper-page">
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <div class="menu-top">
+          <a href="index.html" class="logo">
+            <img src="img/logo-technomart.svg" width="108" height="18" alt="Логотип магазина Техномарт">
+          </a>
+          <!--Форма поиска-->
+          <form action="https://echo.htmlacademy.ru" method="get" class="menu-search">
+            <label for="form-search" class="visually-hidden">Поиск</label>
+            <input type="search" class="site-search" name="search" id="form-search" placeholder="Поиск:">
+            <button type="submit" class="search-button">
+              <span class="visually-hidden">Кнопка начать поиск</span>
+              <svg class="svg-search" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.458 12.044L17 15.586L15.586 17L12.044 13.458C10.782 14.421 9.21 15 7.5 15C3.35786 15 0 11.6421 0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15.0001 9.14309 14.4581 10.7403 13.458 12.044ZM7.5 2C4.467 2 2 4.467 2 7.5C2.00331 10.5362 4.4638 12.9967 7.5 13C10.532 13 13 10.532 13 7.5C13 4.467 10.532 2 7.5 2Z"
+                  fill="white" />
+              </svg>
+            </button>
+          </form>
+          <a href="#!" class="bookmarks">Закладки: 0</a>
+          <a href="#!" class="basket">Корзина: 0</a>
+          <a href="#!" class="checkout">Оформить заказ</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <section class="header-middle">
+        <h2>Интернет-магазин строительных материалов <br> и инструментов для ремонта</h2>
+        <div class="contact-tel">
+          <a href="tel:+78125550555" class="link-header">+7 (812) 555-05-55</a>
+          <p class="tagline-header">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
+        </div>
+        <div class="my-office">
+          <div class="melon-user">
+            <a href="#!" class="sign-in">
+              <svg width="20" height="17" viewBox="0 0 20 17" fill="none">
+                <path d="M14.1667 8.5L5.71429 0V6H0V11H5.71429V17L14.1667 8.5Z" fill="#C5C5C5" />
+                <path
+                  d="M16.1771 15.01H11.3895V17H16.1771C18.2514 17 19.0381 15.19 19.0619 13.974V3.028C19.0381 1.811 18.2514 0 16.1771 0H11.3895V1.99H16.1771C16.9762 1.99 17.1219 2.671 17.1391 3.047V13.951C17.1229 14.327 16.9762 15.01 16.1771 15.01Z"
+                  fill="#C5C5C5" />
+              </svg>
+              Войти
+            </a>
+            <a href="#!" class="sign-up">Регистрация</a>
+          </div>
+        </div>
+      </section>
+      <nav class="main-menu">
+        <ul class="list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="#!">Компания</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="#!">Новости</a></li>
+          <li><a href="#!">Спецпредложения</a></li>
+          <li><a href="#!">Доставка</a></li>
+          <li><a href="#!">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!--Попап товар добавлен корзину-->
+    <section class="popup item-added">
+      <h6 class="visually-hidden">Уведомление товар добавлен в корзину</h6>
+      <div class="main-basket">
+        <p class="text-popup">Товар добавлен в корзину!</p>
+        <ul class="list list-notice-item-added-to-cart">
+          <li><a href="#!" class="button button-checkout">Оформить заказ</a></li>
+          <li><a href="catalog.html" class="button continue-shopping">Продолжить покупки</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="logo-contact-tel">
+          <a href="index.html" class="logo">
+            <img class="logo-footer" src="img/logo-technomart.svg" width="108" height="18"
+              alt="Логотип магазина Техномарт">
+          </a>
+          <div class="contact-tel">
+            <p class="adress-footer">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
+            <a href="tel:+78125550555">+7 (812) 555-05-55</a>
+          </div>
+        </div>
+        <div class="footer-menu">
+          <ul class="list footer-top-menu">
+            <li><a href="#!">Компания</a></li>
+            <li><a href="#!">Новости</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="#!">Доставка</a></li>
+            <li><a href="#!">Контакты</a></li>
+          </ul>
+          <ul class="list footer-bottom-menu">
+            <li><a href="#!">Материалы</a></li>
+            <li><a href="#!">Техника</a></li>
+            <li><a href="#!">Инструмент</a></li>
+            <li><a href="#!">Спецпредложения</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2010–2019 Компания «Техномарт» Все права защищены</p>
+        <ul class="list socials">
+          <li>
+            <a href="#!" class="social-icon social-icon-vk"><span class="visually-hidden">Вконтакте</span></a>
+          </li>
+          <li>
+            <a href="#!" class="social-icon social-icon-facebook"><span class="visually-hidden">Фейсбук</span></a>
+          </li>
+          <li>
+            <a href="#!" class="social-icon social-icon-instagram"><span class="visually-hidden">Инстаграм</span></a>
+          </li>
+        </ul>
+        <p class="feedback-email">Обратная связь:
+          <a href="mailto:mail@htmlacademy.ru" class="gold">mail@htmlacademy.ru</a>
+        </p>
+        <p class="developer-site">
+          Разработано —
+          <a href="https://htmlacademy.ru/intensive/htmlcss" target="_blank" class="gold">htmlacademy.ru</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
