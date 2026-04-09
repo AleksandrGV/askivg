@@ -113,7 +113,7 @@ try {
             foreach ($comments as $c) {
                 $formatted[] = [
                     'id' => $c['id'],
-                    'project_id' => $c['project_id'],
+                    'project_slug' => $c['project_slug'],
                     'author' => $c['author'],
                     'email' => $c['email'],
                     'text' => $c['text'],

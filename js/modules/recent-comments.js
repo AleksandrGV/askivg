@@ -16,7 +16,9 @@ let recentCommentsSwiper = null;
 export async function loadRecentComments(limit = 6) {
     try {
         const sliderWrapper = document.getElementById('recentCommentsSlider');
-        if (!sliderWrapper) return;
+        if (!sliderWrapper) {
+            return;
+        }
         
         sliderWrapper.innerHTML = `
             <div class="swiper-slide recent-comments__loading">
@@ -26,10 +28,14 @@ export async function loadRecentComments(limit = 6) {
         `;
         
         const response = await fetch(`php/comments.php?recent=${limit}`);
-        if (!response.ok) throw new Error('Ошибка загрузки');
+        if (!response.ok) {
+            throw new Error('Ошибка загрузки');
+        }
         
         const comments = await response.json();
-        if (!Array.isArray(comments)) throw new Error('Некорректный формат');
+        if (!Array.isArray(comments)) {
+            throw new Error('Некорректный формат');
+        }
         
         displayRecentComments(comments);
     } catch (error) {
@@ -43,7 +49,9 @@ export async function loadRecentComments(limit = 6) {
  */
 export function displayRecentComments(comments) {
     const sliderWrapper = document.getElementById('recentCommentsSlider');
-    if (!sliderWrapper) return;
+    if (!sliderWrapper) {
+        return;
+    }
     
     if (!comments || comments.length === 0) {
         sliderWrapper.innerHTML = `
@@ -117,9 +125,13 @@ export function showRecentCommentsError() {
  */
 export function initRecentCommentsSlider() {
     const sliderElement = document.querySelector('.recent-comments__slider');
-    if (!sliderElement || typeof Swiper === 'undefined') return;
+    if (!sliderElement || typeof Swiper === 'undefined') {
+        return;
+    }
     
-    if (recentCommentsSwiper) recentCommentsSwiper.destroy();
+    if (recentCommentsSwiper) {
+        recentCommentsSwiper.destroy();
+    }
     
     const slidesCount = sliderElement.querySelectorAll('.swiper-slide').length;
     

@@ -161,8 +161,8 @@ import portfolio from './modules/portfolio.js';
 import technologies from './modules/technologies.js';
 import resizeEvents from './modules/resize-events.js';
 import ContactForm from './modules/contact-form.js';
-import comments from './modules/comments.js';
-import rating from './modules/rating.js';
+// import comments from './modules/comments.js';
+// import rating from './modules/rating.js';
 import captcha from './modules/captcha.js';
 import recentComments from './modules/recent-comments.js';
 import projects from './modules/projects.js';
@@ -186,13 +186,27 @@ async function initAllModules() {
         isInitialized = true;
         
         // 1. Инициализация базовых модулей
-        if (preloader?.initPreloader) preloader.initPreloader();
-        if (navigation?.initNavigation) navigation.initNavigation();
-        if (smoothScroll?.initSmoothScroll) smoothScroll.initSmoothScroll();
-        if (animations?.initAnimations) animations.initAnimations();
-        if (portfolio?.initPortfolio) portfolio.initPortfolio();
-        if (technologies?.initTechnologies) technologies.initTechnologies();
-        if (resizeEvents?.initResizeEvents) resizeEvents.initResizeEvents();
+        if (preloader?.initPreloader) {
+            preloader.initPreloader();
+        }
+        if (navigation?.initNavigation) {
+            navigation.initNavigation();
+        }
+        if (smoothScroll?.initSmoothScroll) {
+            smoothScroll.initSmoothScroll();
+        }
+        if (animations?.initAnimations) {
+            animations.initAnimations();
+        }
+        if (portfolio?.initPortfolio) {
+            portfolio.initPortfolio();
+        }
+        if (technologies?.initTechnologies) {
+            technologies.initTechnologies();
+        }
+        if (resizeEvents?.initResizeEvents) {
+            resizeEvents.initResizeEvents();
+        }
         
         // 2. Инициализация контактной формы
         if (typeof ContactForm !== 'undefined') {
@@ -240,7 +254,9 @@ if (typeof md5 === 'undefined') {
         console.warn('⚠️ Не удалось загрузить MD5 библиотеку, используем fallback');
         window.md5 = function(str) {
             let hash = 0;
-            if (str.length === 0) return '00000000000000000000000000000000';
+            if (str.length === 0) {
+                return '00000000000000000000000000000000';
+            }
             for (let i = 0; i < str.length; i++) {
                 const char = str.charCodeAt(i);
                 hash = ((hash << 5) - hash) + char;

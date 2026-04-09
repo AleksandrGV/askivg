@@ -1,6 +1,6 @@
 <?php
 /**
- * Сохранение комментария в базу данных
+ * Сохранение комментария - версия с project_slug
  */
 
 ini_set('display_errors', 0);
@@ -32,7 +32,8 @@ try {
     if (!$input) $input = $_POST;
     if (!$input) throw new Exception('Некорректные данные');
     
-    $projectId = intval($input['project_id'] ?? 0);
+    // ===== ПОЛУЧАЕМ ДАННЫЕ (только project_slug) =====
+    $projectSlug = trim($input['project_slug'] ?? '');
     $author = trim(htmlspecialchars($input['author'] ?? '', ENT_QUOTES, 'UTF-8'));
     $email = trim(filter_var($input['email'] ?? '', FILTER_SANITIZE_EMAIL));
     $text = trim(htmlspecialchars($input['text'] ?? '', ENT_QUOTES, 'UTF-8'));
@@ -40,13 +41,22 @@ try {
     $captchaAnswer = trim($input['captcha_answer'] ?? '');
     $captchaHash = trim($input['captcha_hash'] ?? '');
     
-    // Валидация
+    // ===== ВАЛИДАЦИЯ =====
     $errors = [];
     
-    if ($projectId <= 0) $errors[] = 'Некорректный ID проекта';
+    if (empty($projectSlug)) {
+        $errors[] = 'Не указан проект';
+    }
+    
     if (strlen($author) < 2) $errors[] = 'Имя должно содержать минимум 2 символа';
+    if (strlen($author) > 50) $errors[] = 'Имя слишком длинное';
+    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Некорректный email адрес';
+    if (strlen($email) > 150) $errors[] = 'Email слишком длинный';
+    
     if (strlen($text) < 5) $errors[] = 'Комментарий должен содержать минимум 5 символов';
+    if (strlen($text) > 500) $errors[] = 'Комментарий слишком длинный (максимум 500 символов)';
+    
     if ($rating < 1 || $rating > 5) $rating = 5;
     
     // Проверка капчи
@@ -89,10 +99,12 @@ try {
     // Проверка лимита (5 в сутки)
     $ip = $_SERVER['REMOTE_ADDR'] ?? '';
     
-    $stmt = $db->prepare("SELECT COUNT(*) FROM comments WHERE ip_address = ? AND created_at > DATE_SUB(NOW(), INTERVAL 24 HOUR)");
-    $stmt->execute([$ip]);
-    if ($stmt->fetchColumn() >= 5) {
-        throw new Exception('С одного IP можно отправить не более 5 комментариев в сутки');
+    if (!empty($ip)) {
+        $stmt = $db->prepare("SELECT COUNT(*) FROM comments WHERE ip_address = ? AND created_at > DATE_SUB(NOW(), INTERVAL 24 HOUR)");
+        $stmt->execute([$ip]);
+        if ($stmt->fetchColumn() >= 5) {
+            throw new Exception('С одного IP можно отправить не более 5 комментариев в сутки');
+        }
     }
     
     $stmt = $db->prepare("SELECT COUNT(*) FROM comments WHERE email = ? AND created_at > DATE_SUB(NOW(), INTERVAL 24 HOUR)");
@@ -101,18 +113,25 @@ try {
         throw new Exception('С одного email можно отправить не более 5 комментариев в сутки');
     }
     
-    // Сохраняем
+    // Сохраняем (только project_slug)
     $avatar = "https://www.gravatar.com/avatar/" . md5(strtolower($email)) . "?d=identicon&s=60";
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
     
     $stmt = $db->prepare("
         INSERT INTO comments 
-        (project_id, author, email, text, rating, status, avatar, ip_address, user_agent) 
+        (project_slug, author, email, text, rating, status, avatar, ip_address, user_agent) 
         VALUES (?, ?, ?, ?, ?, 'pending', ?, ?, ?)
     ");
     
     $stmt->execute([
-        $projectId, $author, $email, $text, $rating, $avatar, $ip,
-        $_SERVER['HTTP_USER_AGENT'] ?? ''
+        $projectSlug,
+        $author,
+        $email,
+        $text,
+        $rating,
+        $avatar,
+        $ip,
+        $userAgent
     ]);
     
     $commentId = $db->lastInsertId();

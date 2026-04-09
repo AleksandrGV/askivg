@@ -53,8 +53,8 @@ export const TECHNOLOGIES_DATA = {
     sass: { 
         title: 'Sass/SCSS', 
         text: 'Препроцессор CSS для эффективной разработки.' 
-    },
-}
+    }
+};
 
 // Экспорт всех констант
 export default {

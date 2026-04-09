@@ -58,7 +58,9 @@ export function initNavigation() {
 }
 
 function updateNavOnScroll(nav) {
-    if (!nav) return;
+    if (!nav) {
+        return;
+    }
     
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     

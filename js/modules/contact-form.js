@@ -6,8 +6,8 @@
 
 import { 
     initCaptcha, 
-    refreshCaptcha, 
-    validateCaptchaAnswer 
+    refreshCaptcha
+    // validateCaptchaAnswer 
 } from './captcha.js';
 
 // Утилиты для работы с формой
@@ -99,8 +99,12 @@ class FormUtils {
      * Склонение минут для правильного отображения времени
      */
     static getMinutesText(minutes) {
-        if (minutes === 1) return 'минуту';
-        if (minutes >= 2 && minutes <= 4) return 'минуты';
+        if (minutes === 1) {
+            return 'минуту';
+        }
+        if (minutes >= 2 && minutes <= 4) {
+            return 'минуты';
+        }
         return 'минут';
     }
 }
@@ -130,8 +134,12 @@ export class ContactForm {
         const noscript = this.form.querySelector('noscript');
         const jsCaptcha = this.form.querySelector('.captcha-js');
         
-        if (noscript) noscript.style.display = 'none';
-        if (jsCaptcha) jsCaptcha.style.display = 'block';
+        if (noscript) {
+            noscript.style.display = 'none';
+        }
+        if (jsCaptcha) {
+            jsCaptcha.style.display = 'block';
+        }
         
         // Добавляем novalidate чтобы отключить браузерную валидацию
         // но сохраняем required для семантики
@@ -246,8 +254,7 @@ export class ContactForm {
             projectField.addEventListener('input', function() {
                 const length = this.value.length;
                 counter.textContent = `${length}/2000 символов`;
-                counter.style.color = length > 2000 ? '#e53e3e' : 
-                                    length > 1800 ? '#ed8936' : '#718096';
+                counter.style.color = length > 2000 ? '#e53e3e' : length > 1800 ? '#ed8936' : '#718096';
                 
                 // Автоматическое обрезание если превышен лимит
                 if (length > 2000) {
@@ -432,53 +439,57 @@ export class ContactForm {
      */
     validateField(fieldId) {
         const field = document.getElementById(fieldId);
-        if (!field) return true;
+        if (!field) {
+            return true;
+        }
         
         const errorElem = document.getElementById(fieldId + 'Error');
-        if (!errorElem) return true;
+        if (!errorElem) {
+            return true;
+        }
         
         const value = field.value.trim();
         let isValid = true;
         let errorMessage = '';
         
         switch (fieldId) {
-            case 'name':
-                if (!value) {
-                    errorMessage = 'Введите ваше имя';
-                } else if (value.length < 2) {
-                    errorMessage = 'Имя должно содержать минимум 2 символа';
-                } else if (value.length > 100) {
-                    errorMessage = 'Имя не должно превышать 100 символов';
-                }
-                break;
+        case 'name':
+            if (!value) {
+                errorMessage = 'Введите ваше имя';
+            } else if (value.length < 2) {
+                errorMessage = 'Имя должно содержать минимум 2 символа';
+            } else if (value.length > 100) {
+                errorMessage = 'Имя не должно превышать 100 символов';
+            }
+            break;
                 
-            case 'email':
-                if (!value) {
-                    errorMessage = 'Введите email адрес';
-                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                    errorMessage = 'Введите корректный email адрес';
-                } else if (value.length > 150) {
-                    errorMessage = 'Email слишком длинный';
-                }
-                break;
+        case 'email':
+            if (!value) {
+                errorMessage = 'Введите email адрес';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                errorMessage = 'Введите корректный email адрес';
+            } else if (value.length > 150) {
+                errorMessage = 'Email слишком длинный';
+            }
+            break;
                 
-            case 'project':
-                if (!value) {
-                    errorMessage = 'Опишите ваш проект';
-                } else if (value.length < 10) {
-                    errorMessage = 'Описание проекта должно содержать минимум 10 символов';
-                } else if (value.length > 2000) {
-                    errorMessage = 'Описание проекта не должно превышать 2000 символов';
-                }
-                break;
+        case 'project':
+            if (!value) {
+                errorMessage = 'Опишите ваш проект';
+            } else if (value.length < 10) {
+                errorMessage = 'Описание проекта должно содержать минимум 10 символов';
+            } else if (value.length > 2000) {
+                errorMessage = 'Описание проекта не должно превышать 2000 символов';
+            }
+            break;
                 
-            case 'captcha':
-                if (!value) {
-                    errorMessage = 'Введите ответ на вопрос';
-                } else if (!/^\d+$/.test(value)) {
-                    errorMessage = 'Ответ должен содержать только цифры';
-                }
-                break;
+        case 'captcha':
+            if (!value) {
+                errorMessage = 'Введите ответ на вопрос';
+            } else if (!/^\d+$/.test(value)) {
+                errorMessage = 'Ответ должен содержать только цифры';
+            }
+            break;
         }
         
         if (errorMessage) {
@@ -504,7 +515,9 @@ export class ContactForm {
         const privacyCheckbox = document.getElementById('privacy');
         const privacyError = document.getElementById('privacyError');
         
-        if (!privacyCheckbox) return true;
+        if (!privacyCheckbox) {
+            return true;
+        }
         
         if (!privacyCheckbox.checked) {
             if (privacyError) {
@@ -547,25 +560,33 @@ export class ContactForm {
         // 2. Email
         if (!this.validateField('email')) {
             allValid = false;
-            if (!firstErrorField) firstErrorField = 'email';
+            if (!firstErrorField) {
+                firstErrorField = 'email';
+            }
         }
         
         // 3. Проект
         if (!this.validateField('project')) {
             allValid = false;
-            if (!firstErrorField) firstErrorField = 'project';
+            if (!firstErrorField) {
+                firstErrorField = 'project';
+            }
         }
         
         // 4. Чекбокс согласия (после проекта, перед капчей)
         if (!this.validatePrivacyField()) {
             allValid = false;
-            if (!firstErrorField) firstErrorField = 'privacy';
+            if (!firstErrorField) {
+                firstErrorField = 'privacy';
+            }
         }
         
         // 5. Капча (последняя в форме)
         if (!this.validateField('captcha')) {
             allValid = false;
-            if (!firstErrorField) firstErrorField = 'captcha';
+            if (!firstErrorField) {
+                firstErrorField = 'captcha';
+            }
         }
         
         // Фокусируемся на первом поле с ошибкой
@@ -632,7 +653,9 @@ export class ContactForm {
      */
     startRateLimitCountdown(milliseconds) {
         const timerContainer = document.getElementById('rateLimitTimer');
-        if (!timerContainer) return;
+        if (!timerContainer) {
+            return;
+        }
         
         let remainingTime = Math.ceil(milliseconds / 1000);
         
@@ -669,156 +692,158 @@ export class ContactForm {
     /**
  * Обработчик отправки формы
  */
-async handleSubmit(e) {
-    e.preventDefault();
+    async handleSubmit(e) {
+        e.preventDefault();
 
-    // ПРОВЕРКА: загружена ли MD5 библиотека
-    if (typeof window.md5 !== 'function') {
-        FormUtils.showMessage('Пожалуйста, подождите секунду и попробуйте снова (загружается библиотека)', 'warning');
-        // Обновляем капчу через секунду
-        setTimeout(() => {
+        // ПРОВЕРКА: загружена ли MD5 библиотека
+        if (typeof window.md5 !== 'function') {
+            FormUtils.showMessage('Пожалуйста, подождите секунду и попробуйте снова (загружается библиотека)', 'warning');
+            // Обновляем капчу через секунду
+            setTimeout(() => {
+                this.captchaData = refreshCaptcha();
+            }, 1000);
+            return;
+        }
+
+        // ПРОВЕРКА: хеш должен быть 32 символа (MD5)
+        const currentHash = document.getElementById('captchaHash').value;
+        if (currentHash.length !== 32) {
+            console.error('❌ Хеш капчи некорректной длины:', currentHash);
             this.captchaData = refreshCaptcha();
-        }, 1000);
-        return;
-    }
-
-    // ПРОВЕРКА: хеш должен быть 32 символа (MD5)
-    const currentHash = document.getElementById('captchaHash').value;
-    if (currentHash.length !== 32) {
-        console.error('❌ Хеш капчи некорректной длины:', currentHash);
-        this.captchaData = refreshCaptcha();
-        FormUtils.showMessage('Ошибка капчи. Пожалуйста, обновите страницу.', 'error');
-        return;
-    }
+            FormUtils.showMessage('Ошибка капчи. Пожалуйста, обновите страницу.', 'error');
+            return;
+        }
     
-    // Проверяем блокировку
-    if (this.rateLimitEndTime && Date.now() < this.rateLimitEndTime) {
-        const remainingSeconds = Math.ceil((this.rateLimitEndTime - Date.now()) / 1000);
-        FormUtils.showMessage(
-            `Пожалуйста, подождите ${remainingSeconds} секунд перед следующей отправкой.`,
-            'warning'
-        );
-        return;
-    }
+        // Проверяем блокировку
+        if (this.rateLimitEndTime && Date.now() < this.rateLimitEndTime) {
+            const remainingSeconds = Math.ceil((this.rateLimitEndTime - Date.now()) / 1000);
+            FormUtils.showMessage(
+                `Пожалуйста, подождите ${remainingSeconds} секунд перед следующей отправкой.`,
+                'warning'
+            );
+            return;
+        }
     
-    // Проверяем отправку
-    if (this.isSubmitting) return;
-    
-    // Валидация всех полей
-    if (!this.validateAllFields()) {
-        return;
-    }
-    
-    // Начинаем отправку
-    this.isSubmitting = true;
-    this.setSubmitButtonState(true);
-    
-    try {
-        // Собираем данные формы
-        const formData = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            project: document.getElementById('project').value.trim(),
-            privacy: document.getElementById('privacy').checked ? '1' : '0',
-            captcha_answer: document.getElementById('captcha').value.trim(),
-            captcha_hash: document.getElementById('captchaHash').value,
-            form_load_time: document.getElementById('formLoadTime').value,
-            _t: Date.now() // Таймстамп для уникальности запроса
-        };
+        // Проверяем отправку
+        if (this.isSubmitting) {
+            return;
+        }
         
-        // Отправка на сервер
-        const response = await fetch('php/send_form.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Accept': 'application/json'
-            },
-            body: new URLSearchParams(formData)
-        });
-        
-        // Парсим ответ
-        const text = await response.text();
-        let result;
-        
+        // Валидация всех полей
+        if (!this.validateAllFields()) {
+            return;
+        }
+    
+        // Начинаем отправку
+        this.isSubmitting = true;
+        this.setSubmitButtonState(true);
+    
         try {
-            result = JSON.parse(text);
-        } catch (parseError) {
-            console.error('Ошибка парсинга ответа:', parseError);
-            throw new Error('Некорректный ответ сервера');
-        }
+            // Собираем данные формы
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                project: document.getElementById('project').value.trim(),
+                privacy: document.getElementById('privacy').checked ? '1' : '0',
+                captcha_answer: document.getElementById('captcha').value.trim(),
+                captcha_hash: document.getElementById('captchaHash').value,
+                form_load_time: document.getElementById('formLoadTime').value,
+                _t: Date.now() // Таймстамп для уникальности запроса
+            };
         
-        // Обработка ответа
-        if (response.ok && result.success) {
-            // УСПЕШНАЯ ОТПРАВКА
-            FormUtils.showMessage(result.message, 'success');
+            // Отправка на сервер
+            const response = await fetch('php/send_form.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    'Accept': 'application/json'
+                },
+                body: new URLSearchParams(formData)
+            });
+        
+            // Парсим ответ
+            const text = await response.text();
+            let result;
             
-            // Обновляем капчу из ответа сервера (ВАЖНО!)
-            if (result.data?.captcha) {
-                this.updateCaptchaFromServer(result.data.captcha);
+            try {
+                result = JSON.parse(text);
+            } catch (parseError) {
+                console.error('Ошибка парсинга ответа:', parseError);
+                throw new Error('Некорректный ответ сервера');
+            }
+        
+            // Обработка ответа
+            if (response.ok && result.success) {
+                // УСПЕШНАЯ ОТПРАВКА
+                FormUtils.showMessage(result.message, 'success');
+                
+                // Обновляем капчу из ответа сервера (ВАЖНО!)
+                if (result.data?.captcha) {
+                    this.updateCaptchaFromServer(result.data.captcha);
+                } else {
+                    // Если сервер не вернул капчу, генерируем новую
+                    this.captchaData = refreshCaptcha();
+                }
+                
+                // Сбрасываем форму
+                this.resetForm();
+                
+                // Сбрасываем блокировку если была
+                localStorage.removeItem('rateLimitEndTime');
+                this.rateLimitEndTime = null;
+                
+            } else if (response.status === 429) {
+                // СЛИШКОМ МНОГО ЗАПРОСОВ
+                const retryAfter = result.data?.retry_after || 3600;
+                const minutes = Math.ceil(retryAfter / 60);
+                const message = `Вы отправили слишком много запросов. Пожалуйста, попробуйте через ${minutes} ${FormUtils.getMinutesText(minutes)}.`;
+                
+                FormUtils.showMessage(message, 'error');
+                
+                // Сохраняем блокировку
+                const endTime = Date.now() + (retryAfter * 1000);
+                this.rateLimitEndTime = endTime;
+                localStorage.setItem('rateLimitEndTime', endTime.toString());
+                
+                // Блокируем форму
+                this.disableForm(true);
+                this.startRateLimitCountdown(retryAfter * 1000);
+                
             } else {
-                // Если сервер не вернул капчу, генерируем новую
-                this.captchaData = refreshCaptcha();
+                // ОШИБКА ВАЛИДАЦИИ
+                const errorMessage = result.message || `Ошибка ${response.status}`;
+                
+                // Более дружелюбные сообщения для капчи
+                if (errorMessage.includes('математическую задачу') || errorMessage.includes('капч')) {
+                    FormUtils.showMessage('❌ Неверный ответ на капчу. Попробуйте еще раз или обновите капчу.', 'error');
+                    this.captchaData = refreshCaptcha();
+                } else {
+                    FormUtils.showMessage('❌ ' + errorMessage, 'error');
+                }
             }
             
-            // Сбрасываем форму
-            this.resetForm();
+        } catch (error) {
+            console.error('Ошибка отправки формы:', error);
             
-            // Сбрасываем блокировку если была
-            localStorage.removeItem('rateLimitEndTime');
-            this.rateLimitEndTime = null;
+            let userMessage = 'Ошибка отправки. Проверьте подключение и попробуйте еще раз.';
             
-        } else if (response.status === 429) {
-            // СЛИШКОМ МНОГО ЗАПРОСОВ
-            let retryAfter = result.data?.retry_after || 3600;
-            const minutes = Math.ceil(retryAfter / 60);
-            const message = `Вы отправили слишком много запросов. Пожалуйста, попробуйте через ${minutes} ${FormUtils.getMinutesText(minutes)}.`;
-            
-            FormUtils.showMessage(message, 'error');
-            
-            // Сохраняем блокировку
-            const endTime = Date.now() + (retryAfter * 1000);
-            this.rateLimitEndTime = endTime;
-            localStorage.setItem('rateLimitEndTime', endTime.toString());
-            
-            // Блокируем форму
-            this.disableForm(true);
-            this.startRateLimitCountdown(retryAfter * 1000);
-            
-        } else {
-            // ОШИБКА ВАЛИДАЦИИ
-            const errorMessage = result.message || `Ошибка ${response.status}`;
-            
-            // Более дружелюбные сообщения для капчи
-            if (errorMessage.includes('математическую задачу') || errorMessage.includes('капч')) {
-                FormUtils.showMessage('❌ Неверный ответ на капчу. Попробуйте еще раз или обновите капчу.', 'error');
-                this.captchaData = refreshCaptcha();
-            } else {
-                FormUtils.showMessage('❌ ' + errorMessage, 'error');
+            if (error.message.includes('Failed to fetch')) {
+                userMessage = 'Не удалось подключиться к серверу. Проверьте интернет-соединение.';
+            } else if (error.message.includes('Некорректный')) {
+                userMessage = 'Ошибка обработки ответа сервера.';
             }
+            
+            FormUtils.showMessage(userMessage, 'error');
+            this.captchaData = refreshCaptcha();
+            
+        } finally {
+            // Восстанавливаем кнопку если не заблокирована
+            if (!(this.rateLimitEndTime && Date.now() < this.rateLimitEndTime)) {
+                this.setSubmitButtonState(false);
+            }
+            this.isSubmitting = false;
         }
-        
-    } catch (error) {
-        console.error('Ошибка отправки формы:', error);
-        
-        let userMessage = 'Ошибка отправки. Проверьте подключение и попробуйте еще раз.';
-        
-        if (error.message.includes('Failed to fetch')) {
-            userMessage = 'Не удалось подключиться к серверу. Проверьте интернет-соединение.';
-        } else if (error.message.includes('Некорректный')) {
-            userMessage = 'Ошибка обработки ответа сервера.';
-        }
-        
-        FormUtils.showMessage(userMessage, 'error');
-        this.captchaData = refreshCaptcha();
-        
-    } finally {
-        // Восстанавливаем кнопку если не заблокирована
-        if (!(this.rateLimitEndTime && Date.now() < this.rateLimitEndTime)) {
-            this.setSubmitButtonState(false);
-        }
-        this.isSubmitting = false;
     }
-}
 
     
     /**
@@ -901,7 +926,9 @@ async handleSubmit(e) {
  * @param {Object} captchaData - данные капчи с сервера {question, hash}
  */
     updateCaptchaFromServer(captchaData) {
-        if (!captchaData) return;
+        if (!captchaData) {
+            return;
+        }
         
         // Обновляем вопрос капчи
         const questionElem = document.getElementById('captchaQuestion');

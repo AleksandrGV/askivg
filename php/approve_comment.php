@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $comment_id = $_POST['comment_id'] ?? '';
-$project_id = $_POST['project_id'] ?? '';
+$project_slug = $_POST['project_slug'] ?? '';
 
 if (empty($comment_id)) {
     http_response_code(400);

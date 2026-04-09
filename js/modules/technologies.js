@@ -31,9 +31,9 @@ export class TechnologiesSphere {
 
     // Инициализация случайных позиций
     initializeTechnologiesPositions() {
-        this.technologiesPoints.forEach((point, index) => {
+        this.technologiesPoints.forEach((point) => {
             const angle = Math.random() * Math.PI * 2;
-            let distance = 50 + Math.random() * 200; // От 50px до 200px от центра
+            const distance = 50 + Math.random() * 200; // От 50px до 200px от центра
             const depth = (Math.random() - 0.5) * 100; // Глубина от -50px до 50px
 
             const position = {
@@ -65,7 +65,9 @@ export class TechnologiesSphere {
     // Обновление позиций технологии
     updateTechnologiesPosition(point) {
         const state = this.technologiesStates.get(point);
-        if (!state) return;
+        if (!state) {
+            return;
+        }
 
         const { position } = state;
 
@@ -83,11 +85,15 @@ export class TechnologiesSphere {
 
     // Анимация случайного движения технологий
     animateTechnologiesMovement() {
-        if (!this.isAnimation) return;
+        if (!this.isAnimation) {
+            return;
+        }
 
         this.technologiesPoints.forEach(point => {
             const state = this.technologiesStates.get(point);
-            if (!state || state.isHovered) return;
+            if (!state || state.isHovered) {
+                return;
+            }
 
             const { position, velocity } = state;
 
@@ -159,9 +165,11 @@ export class TechnologiesSphere {
 
     setupEventListeners() {
         this.technologiesPoints.forEach(point => {
-            point.addEventListener('mouseenter', (e) => {
+            point.addEventListener('mouseenter', () => {
                 const state = this.technologiesStates.get(point);
-                if (state) state.isHovered = true;
+                if (state) {
+                    state.isHovered = true;
+                }
 
                 // Останавливаем движение диска и движение технологий
                 this.sphere.classList.add('paused');
@@ -177,9 +185,11 @@ export class TechnologiesSphere {
                 point.style.zIndex = '1000';
             });
 
-            point.addEventListener('mouseleave', (e) => {
+            point.addEventListener('mouseleave', () => {
                 const state = this.technologiesStates.get(point);
-                if (state) state.isHovered = false;
+                if (state) {
+                    state.isHovered = false;
+                }
 
                 // Вообновляем движение диска и технологий
                 this.sphere.classList.remove('paused');
@@ -195,7 +205,7 @@ export class TechnologiesSphere {
                 }, 300);
             });
 
-            point.addEventListener('click', (e) => {
+            point.addEventListener('click', () => {
                 const tech = point.getAttribute('data-tech');
                 if (TECHNOLOGIES_DATA[tech]) {
                     this.technologiesInfoTitle.textContent = TECHNOLOGIES_DATA[tech].title;

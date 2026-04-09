@@ -11,7 +11,9 @@ export function initRatingStars(projectId) {
     const ratingInput = document.getElementById(`commentRating-${projectId}`);
     const stars = starsContainer?.querySelectorAll('.star');
     
-    if (!starsContainer || !ratingInput || !stars) return;
+    if (!starsContainer || !ratingInput || !stars) {
+        return;
+    }
     
     let currentRating = parseInt(ratingInput.value) || 5;
     

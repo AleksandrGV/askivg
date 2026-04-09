@@ -13,7 +13,9 @@ function getMD5Hash(str) {
     }
     // Фоллбэк
     let hash = 0;
-    if (str.length === 0) return '00000000000000000000000000000000';
+    if (str.length === 0) {
+        return '00000000000000000000000000000000';
+    }
     for (let i = 0; i < str.length; i++) {
         const char = str.charCodeAt(i);
         hash = ((hash << 5) - hash) + char;
@@ -42,7 +44,9 @@ export function generateCaptcha() {
  * Обновляет капчу на странице
  */
 export function updateCaptchaOnPage(projectId, captchaData = null) {
-    if (!captchaData) captchaData = generateCaptcha();
+    if (!captchaData) {
+        captchaData = generateCaptcha();
+    }
     
     // Для формы контактов (без projectId)
     if (projectId === undefined || projectId === null) {
@@ -50,9 +54,15 @@ export function updateCaptchaOnPage(projectId, captchaData = null) {
         const hashInput = document.getElementById('captchaHash');
         const answerInput = document.getElementById('captcha');
         
-        if (questionElem) questionElem.textContent = captchaData.question;
-        if (hashInput) hashInput.value = captchaData.hash;
-        if (answerInput) answerInput.value = '';
+        if (questionElem) {
+            questionElem.textContent = captchaData.question;
+        }
+        if (hashInput) {
+            hashInput.value = captchaData.hash;
+        }
+        if (answerInput) {
+            answerInput.value = '';
+        }
         return captchaData;
     }
     
@@ -61,9 +71,15 @@ export function updateCaptchaOnPage(projectId, captchaData = null) {
     const hashInput = document.getElementById(`captchaHash-${projectId}`);
     const answerInput = document.getElementById(`captchaAnswer-${projectId}`);
     
-    if (questionElem) questionElem.textContent = captchaData.question;
-    if (hashInput) hashInput.value = captchaData.hash;
-    if (answerInput) answerInput.value = '';
+    if (questionElem) {
+        questionElem.textContent = captchaData.question;
+    }
+    if (hashInput) {
+        hashInput.value = captchaData.hash;
+    }
+    if (answerInput) {
+        answerInput.value = '';
+    }
     
     return captchaData;
 }
@@ -72,7 +88,9 @@ export function updateCaptchaOnPage(projectId, captchaData = null) {
  * Проверяет ответ капчи
  */
 export function validateCaptchaAnswer(userAnswer, expectedHash) {
-    if (!userAnswer || !expectedHash) return false;
+    if (!userAnswer || !expectedHash) {
+        return false;
+    }
     return getMD5Hash(userAnswer.trim()) === expectedHash;
 }
 

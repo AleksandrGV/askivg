@@ -22,7 +22,9 @@ export function throttle(func, limit) {
  */
 export function simpleMD5(str) {
     let hash = 0;
-    if (str.length === 0) return '00000000000000000000000000000000';
+    if (str.length === 0) {
+        return '00000000000000000000000000000000';
+    }
     for (let i = 0; i < str.length; i++) {
         const char = str.charCodeAt(i);
         hash = ((hash << 5) - hash) + char;
@@ -35,11 +37,15 @@ export function simpleMD5(str) {
  * Парсит дату из разных форматов
  */
 export function parseDate(dateString) {
-    if (!dateString) return new Date();
+    if (!dateString) {
+        return new Date();
+    }
     let date = new Date(dateString);
     if (isNaN(date.getTime())) {
         const match = dateString.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
-        if (match) date = new Date(`${match[3]}-${match[2]}-${match[1]}T${match[4]}:${match[5]}:00`);
+        if (match) {
+            date = new Date(`${match[3]}-${match[2]}-${match[1]}T${match[4]}:${match[5]}:00`);
+        }
     }
     return isNaN(date.getTime()) ? new Date() : date;
 }
