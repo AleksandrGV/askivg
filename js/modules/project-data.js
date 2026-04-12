@@ -53,6 +53,19 @@ export const PROJECT_DATA = {
         ],
         liveUrl: 'https://aleksandrgv.github.io/356085-keksobooking-21/'
     },
+    'honey-hunters': {
+        title: 'Кексобукинг',
+        category: 'HTML/CSS/JS • Одностраничный сайт',
+        description: 'Современный сайт по подбору и размещению объявлений, по аренде жилья.',
+        technologies: ['HTML5', 'CSS3', 'JavaScript', 'BOOTSTRAP'],
+        duration: '2 месяца',
+        images: [
+            'img/honey-hunters.jpg',
+            'img/honey-hunters-1.jpg',
+            'img/honey-hunters-2.jpg'
+        ],
+        liveUrl: 'https://aleksandrgv.github.io/honey-hunters/'
+    },
     'pink': {
         title: 'Мобильное приложение, которое раскрасит ваши серые будни розовыми красками',
         category: 'HTML/CSS/JS • Многостраничный сайд',

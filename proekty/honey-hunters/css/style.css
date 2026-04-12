@@ -1,0 +1,120 @@
+/* Кастомные стили для проекта Honey Hanters */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-dark {
+    background-color: #2d3136 !important;
+}
+
+.form-control {
+    background-color: #2f3338;
+    border: 1px solid #4c4f53;
+}
+
+/* Стили для карточек комментариев */
+.card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 10px 20px;
+}
+
+.card {
+    border: none;
+}
+
+.comment-card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #deebde;
+    transition: transform 0.3s ease;
+}
+
+.comment-card:hover {
+    transform: translateY(-5px);
+}
+
+.comment-header {
+    padding: 15px;
+    color: white;
+}
+
+.comment-body {
+    padding: 15px;
+}
+
+.comment-email {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: first baseline;
+    justify-content: center;
+    gap: 10px;
+}
+
+.comment-footer {
+    text-align: end;
+    margin-right: 10px;
+    margin-bottom: 14px;
+}
+
+/* Стили для четных и нечетных карточек */
+.comment-even .comment-header {
+    background-color: #4b596c;
+}
+
+.comment-odd .comment-header {
+    background-color: #58ad52;
+}
+
+.comment-odd .comment-email {
+    color: #58ad52;
+}
+
+.comment-email {
+    text-decoration: none;
+    color: #6d737b;
+    font-weight: 900;
+}
+
+.comment-even {
+    background-color: #deebde;
+}
+
+.comment-odd {
+    background-color: #e8f5e8;
+}
+
+.btn-danger {
+    background-color: #be393d !important;
+}
+
+/* Стили соц. кнопок */
+.social {
+    border: 1px solid #b0b3b8;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.social-vk-bg,
+.social-fb-bg {
+    fill: #18191a;
+}
+
+.social-vk-text,
+.social-fb-text {
+    fill: #b0b3b8;
+}
+
+/* Анимация появления новых комментариев */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
