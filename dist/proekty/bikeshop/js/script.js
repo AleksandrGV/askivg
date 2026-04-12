@@ -1,1 +1,0 @@
-$(document).ready(function(){var t=0;setInterval(function(){360!=t?t+=30:t=30,$("div.loader .active").css("transform","rotateY("+t+"deg)")},100)});

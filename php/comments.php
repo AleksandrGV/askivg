@@ -37,6 +37,7 @@ try {
             $formattedComments[] = [
                 'id' => (int)$comment['id'],
                 'project_slug' => $comment['project_slug'],
+                'project_title' => $comment['project_title'],
                 'author' => $comment['author'],
                 'email' => $comment['email'],
                 'text' => $comment['text'],

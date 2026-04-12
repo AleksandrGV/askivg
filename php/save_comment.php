@@ -34,6 +34,7 @@ try {
     
     // ===== ПОЛУЧАЕМ ДАННЫЕ (только project_slug) =====
     $projectSlug = trim($input['project_slug'] ?? '');
+    $projectTitle = trim($input['project_title'] ?? '');
     $author = trim(htmlspecialchars($input['author'] ?? '', ENT_QUOTES, 'UTF-8'));
     $email = trim(filter_var($input['email'] ?? '', FILTER_SANITIZE_EMAIL));
     $text = trim(htmlspecialchars($input['text'] ?? '', ENT_QUOTES, 'UTF-8'));
@@ -113,22 +114,25 @@ try {
         throw new Exception('С одного email можно отправить не более 5 комментариев в сутки');
     }
     
-    // Сохраняем (только project_slug)
+    // Сохраняем комментарий
     $avatar = "https://www.gravatar.com/avatar/" . md5(strtolower($email)) . "?d=identicon&s=60";
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $status = 'pending';
     
     $stmt = $db->prepare("
         INSERT INTO comments 
-        (project_slug, author, email, text, rating, status, avatar, ip_address, user_agent) 
-        VALUES (?, ?, ?, ?, ?, 'pending', ?, ?, ?)
+        (project_slug, project_title, author, email, text, rating, status, avatar, ip_address, user_agent, created_at) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
     ");
     
     $stmt->execute([
         $projectSlug,
+        $projectTitle,
         $author,
         $email,
         $text,
         $rating,
+        $status,
         $avatar,
         $ip,
         $userAgent
@@ -156,11 +160,14 @@ try {
     ], JSON_UNESCAPED_UNICODE);
     
 } catch (PDOException $e) {
-    error_log("DB Error: " . $e->getMessage());
+    error_log("DB Error: Error in save_comment.php: " . $e->getMessage());
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Ошибка базы данных']);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Ошибка базы данных: ' . $e->getMessage()
+        ], JSON_UNESCAPED_UNICODE);
 } catch (Exception $e) {
-    error_log("Error: " . $e->getMessage());
+    error_log("Error in save_comment.php: " . $e->getMessage());
     
     // Новая капча
     $num1 = rand(1, 10);

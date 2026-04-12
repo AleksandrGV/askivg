@@ -6,7 +6,7 @@
  */
 
 import { PROJECT_DATA } from './project-data.js';
-import { parseDate, simpleMD5 } from './utils.js';
+import { simpleMD5 } from './utils.js';
 
 let recentCommentsSwiper = null;
 
@@ -63,8 +63,18 @@ export function displayRecentComments(comments) {
     }
     
     sliderWrapper.innerHTML = comments.map(comment => {
-        const projectId = comment.project_id;
-        const projectTitle = PROJECT_DATA[projectId]?.title || 'Проект';
+        // ========== ИСПРАВЛЕНО: используем project_slug вместо project_id ==========
+        const projectSlug = comment.project_slug;
+        
+        // Получаем название проекта из PROJECT_DATA по слагу (строке), а не по числовому ID
+        let projectTitle = 'Проект';
+        
+        if (projectSlug && PROJECT_DATA[projectSlug]) {
+            projectTitle = PROJECT_DATA[projectSlug].title;
+        } else if (comment.project_title) {
+            // Если в комментарии уже есть сохраненное название (из нового save_comment.php)
+            projectTitle = comment.project_title;
+        }
         
         // Аватар
         let avatarUrl = comment.avatar;
@@ -74,8 +84,7 @@ export function displayRecentComments(comments) {
         }
         
         // Дата
-        const date = parseDate(comment.created_at);
-        const formattedDate = date.toLocaleDateString('ru-RU', {
+        const formattedDate = comment.date || new Date(comment.create_at).toLocaleDateString('ru-RU', {
             day: 'numeric', month: 'long', year: 'numeric'
         });
         
@@ -84,26 +93,41 @@ export function displayRecentComments(comments) {
         
         return `
         <div class="swiper-slide recent-comments__slide" 
-             onclick="window.openProjectModal(${projectId})" 
+             onclick="window.openProjectModal('${projectSlug}')" 
              style="cursor: pointer;">
             <div class="recent-comment__header">
                 <div>
-                    <div class="recent-comment__project">${projectTitle}</div>
+                    <div class="recent-comment__project">${escapeHtml(projectTitle)}</div>
                     <div class="recent-comment__author">
                         <img src="${avatarUrl}" class="recent-comment__avatar" 
                              onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiLi4u'">
-                        <span>${comment.author}</span>
+                        <span>${escapeHtml(comment.author)}</span>
                     </div>
                 </div>
                 <div class="recent-comment__date">${formattedDate}</div>
             </div>
-            <div class="recent-comment__text">${comment.text.substring(0, 180)}...</div>
+            <div class="recent-comment__text">${escapeHtml(comment.text.substring(0, 180))}...</div>
             <div class="recent-comment__rating">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>
         </div>
         `;
     }).join('');
     
     setTimeout(() => initRecentCommentsSlider(), 100);
+}
+
+/**
+ * Защита от XSS
+ */
+function escapeHtml(str) {
+    if (!str) {
+        return '';
+    }
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 
 /**

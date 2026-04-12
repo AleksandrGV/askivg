@@ -1,1 +1,0 @@
-var k=jQuery.noConflict();function equalHeight(t){var i=0;t.each(function(){thisHeight=k(this).height(),thisHeight>i&&(i=thisHeight)}),t.height(i)}k(document).ready(function(){equalHeight(k(".column"))});
