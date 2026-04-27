@@ -68,3 +68,6 @@ credentials.json
 data/comments/
 data/leads/
 *.json
+
+# =========== ПАПКА DIST ===================
+dist/
