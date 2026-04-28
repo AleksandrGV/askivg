@@ -55,10 +55,10 @@ export const PROJECT_DATA = {
     },
     'honey-hunters': {
         title: 'Кексобукинг',
-        category: 'HTML/CSS/JS • Одностраничный сайт',
-        description: 'Современный сайт по подбору и размещению объявлений, по аренде жилья.',
-        technologies: ['HTML5', 'CSS3', 'JavaScript', 'BOOTSTRAP'],
-        duration: '2 месяца',
+        category: 'HTML/CSS/JS • Многостраничный сайт',
+        description: 'Страница комментариев сайта с открывающейся формой и базой данных.',
+        technologies: ['HTML5', 'CSS3', 'JavaScript', 'php', 'BOOTSTRAP'],
+        duration: '1.5 месяца',
         images: [
             'img/honey-hunters.jpg',
             'img/honey-hunters-1.jpg',
@@ -68,7 +68,7 @@ export const PROJECT_DATA = {
     },
     'pink': {
         title: 'Мобильное приложение, которое раскрасит ваши серые будни розовыми красками',
-        category: 'HTML/CSS/JS • Многостраничный сайд',
+        category: 'HTML/CSS/JS • Многостраничный сайт',
         description: 'Стильный многостраничный сайт о мобильном приложении, которое раскрасит ваши серые будни розовыми красками.',
         technologies: ['HTML', 'CSS', 'JS'],
         duration: '6 недель',
